@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
         const endLine = selection.end.line + 1;
         const lineRef = startLine === endLine ? `${startLine}` : `${startLine}-${endLine}`;
 
-        const content = `${filePath}:${lineRef}`;
+        const content = `@${filePath}:${lineRef}`;
 
         await vscode.env.clipboard.writeText(content);
         vscode.window.setStatusBarMessage(`Copied: ${filePath}:${lineRef}`, 2000);

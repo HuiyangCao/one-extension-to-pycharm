@@ -2,8 +2,12 @@
   "name": "copy-with-ref",
   "displayName": "Copy with File Reference",
   "description": "Copy the current file path and line number reference to clipboard. Select code to get a range (e.g. src/foo.py:10-15), or just place the cursor for a single line ref. Useful for pasting into terminals, AI prompts, or issue trackers.",
-  "version": "0.0.3",
-  "publisher": "bb4cec63-bf02-6bb6-8723-2c0c2384c341",
+  "version": "0.0.1",
+  "publisher": "user",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HuiyangCao/vscode-copy-with-ref.git"
+  },
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.80.0"

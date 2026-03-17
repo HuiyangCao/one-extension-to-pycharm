@@ -2,6 +2,9 @@
 
 Quickly copy the current file path and line number to clipboard — no code, just the reference.
 
+## Install
+bash ./install.sh (do not sudo)
+
 ## Usage
 
 Select any code (or just place your cursor), then press `Ctrl+Shift+C` (`Cmd+Shift+C` on Mac), or right-click → **Copy with File Reference**.
@@ -27,3 +30,5 @@ Paste precise file references into terminals, AI prompts, issue trackers, or cha
 | Key | Action |
 |-----|--------|
 | `Ctrl+Shift+C` / `Cmd+Shift+C` | Copy file reference |
+
+
