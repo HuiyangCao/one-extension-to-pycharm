@@ -12,6 +12,7 @@ function applySettings(context: vscode.ExtensionContext) {
     config.update('workbench.editor.pinnedTabsOnSeparateRow', true, vscode.ConfigurationTarget.Global);
     config.update('workbench.tree.expandMode', 'doubleClick', vscode.ConfigurationTarget.Global);
     config.update('explorer.compactFolders', false, vscode.ConfigurationTarget.Global);
+    config.update('workbench.list.openMode', 'doubleClick', vscode.ConfigurationTarget.Global);
 
     // JetBrains style
     config.update('workbench.colorTheme', 'JetBrains Darcula Theme', vscode.ConfigurationTarget.Global);
@@ -56,9 +57,14 @@ function applySettings(context: vscode.ExtensionContext) {
         }
 
         vscode.window.showInformationMessage(
-            '如果字体显示不正常，请先安装 JetBrains Mono 字体：https://www.jetbrains.com/lp/mono/',
+            '如果字体显示不正常，请先安装 JetBrains Mono 字体。Ubuntu 用户可运行：sudo apt install fonts-jetbrains-mono',
+            '官方下载页',
             '知道了'
-        );
+        ).then(action => {
+            if (action === '官方下载页') {
+                vscode.env.openExternal(vscode.Uri.parse('https://www.jetbrains.com/lp/mono/#how-to-install'));
+            }
+        });
     }
 }
 

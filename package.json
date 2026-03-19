@@ -38,6 +38,84 @@
         "key": "ctrl+shift+c",
         "mac": "cmd+shift+c",
         "when": "editorTextFocus"
+      },
+      {
+        "key": "ctrl+shift+q",
+        "command": "editor.debug.action.runToCursor"
+      },
+      {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+      },
+      {
+        "key": "ctrl+q",
+        "command": "git.closeAllDiffEditors"
+      },
+      {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+      },
+      {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+      },
+      {
+        "key": "ctrl+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+      },
+      {
+        "key": "ctrl+k d",
+        "command": "-workbench.files.action.compareWithSaved"
+      },
+      {
+        "key": "ctrl+; d",
+        "command": "-jupyter.moveCellsDown",
+        "when": "editorTextFocus && jupyter.hascodecells && !jupyter.webExtension && !notebookEditorFocused"
+      },
+      {
+        "key": "ctrl+k ctrl+d",
+        "command": "-editor.action.moveSelectionToNextFindMatch",
+        "when": "editorFocus"
+      },
+      {
+        "key": "ctrl+d",
+        "command": "-notebook.addFindMatchToSelection",
+        "when": "config.notebook.multiCursor.enabled && notebookCellEditorFocused && activeEditor == 'workbench.editor.notebook'"
+      },
+      {
+        "key": "ctrl+shift+d",
+        "command": "-workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+      },
+      {
+        "key": "ctrl+d",
+        "command": "workbench.action.pinEditor",
+        "when": "!activeEditorIsPinned"
+      },
+      {
+        "key": "ctrl+k shift+enter",
+        "command": "-workbench.action.pinEditor",
+        "when": "!activeEditorIsPinned"
+      },
+      {
+        "key": "ctrl+shift+alt+f",
+        "command": "editor.action.formatSelection",
+        "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+      },
+      {
+        "key": "ctrl+k ctrl+f",
+        "command": "-editor.action.formatSelection",
+        "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+      },
+      {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+          "text": "\u001b\r"
+        },
+        "when": "terminalFocus"
       }
     ],
     "menus": {
