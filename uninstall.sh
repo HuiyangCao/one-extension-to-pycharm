@@ -38,12 +38,23 @@ info "准备卸载扩展: ${EXT_ID}"
 
 # ---------- 卸载编辑器扩展 ----------
 
+DARCULA_EXT="Anan.jetbrains-darcula-theme"
+
 if command -v code &>/dev/null; then
     if confirm "从 VS Code 卸载扩展" "code --uninstall-extension ${EXT_ID}"; then
         if code --uninstall-extension "$EXT_ID" 2>/dev/null; then
             success "已从 VS Code 卸载"
         else
             warn "VS Code 中未安装此扩展或卸载失败"
+        fi
+    fi
+    if code --list-extensions 2>/dev/null | grep -qi "jetbrains.*darcula"; then
+        if confirm "从 VS Code 卸载 JetBrains Darcula 主题" "code --uninstall-extension ${DARCULA_EXT}"; then
+            if code --uninstall-extension "$DARCULA_EXT" 2>/dev/null; then
+                success "Darcula 主题已从 VS Code 卸载"
+            else
+                warn "Darcula 主题卸载失败"
+            fi
         fi
     fi
 else
@@ -58,8 +69,31 @@ if command -v cursor &>/dev/null; then
             warn "Cursor 中未安装此扩展或卸载失败"
         fi
     fi
+    if cursor --list-extensions 2>/dev/null | grep -qi "jetbrains.*darcula"; then
+        if confirm "从 Cursor 卸载 JetBrains Darcula 主题" "cursor --uninstall-extension ${DARCULA_EXT}"; then
+            if cursor --uninstall-extension "$DARCULA_EXT" 2>/dev/null; then
+                success "Darcula 主题已从 Cursor 卸载"
+            else
+                warn "Darcula 主题卸载失败"
+            fi
+        fi
+    fi
 else
     warn "未检测到 'cursor' CLI，跳过 Cursor"
+fi
+
+# ---------- 卸载 JetBrains Mono 字体 ----------
+
+FONT_DIR="$HOME/.local/share/fonts"
+if ls "$FONT_DIR"/JetBrainsMono*.ttf &>/dev/null; then
+    if confirm "从 ${FONT_DIR} 删除 JetBrains Mono 字体文件" \
+                "rm ${FONT_DIR}/JetBrainsMono*.ttf && fc-cache -f"; then
+        rm "$FONT_DIR"/JetBrainsMono*.ttf
+        fc-cache -f
+        success "JetBrains Mono 字体已卸载"
+    fi
+elif fc-list 2>/dev/null | grep -qi "JetBrains Mono"; then
+    warn "JetBrains Mono 字体已安装但不在 ${FONT_DIR}，请手动卸载"
 fi
 
 # ---------- 清理本地构建产物 ----------

@@ -1,11 +1,12 @@
 # 一键配置 PyCharm 风格
 
 一个 VS Code 插件，一键配置 PyCharm 风格的开发环境：Darcula 主题、JetBrains Mono 字体、文件树优化、快捷键绑定、文件引用复制等。
+测试环境：ubuntu20.04 22.04
 
 ## 安装
 
 ```bash
-bash ./install.sh
+./install.sh
 ```
 
 自动安装到 VS Code；如果检测到 Cursor 也会同时安装。

@@ -153,6 +153,25 @@ else
     fi
 fi
 
+# JetBrains Mono 字体（项目自带字体文件，直接复制到用户字体目录）
+FONT_SRC="$(pwd)/JetBrainsMono-2.304/fonts/ttf"
+FONT_DIR="$HOME/.local/share/fonts"
+
+if fc-list 2>/dev/null | grep -qi "JetBrains Mono"; then
+    success "JetBrains Mono 字体已安装"
+else
+    if confirm "未检测到 JetBrains Mono 字体，从项目自带文件安装到 ${FONT_DIR}" \
+                "cp ${FONT_SRC}/*.ttf ${FONT_DIR}/ && fc-cache -f"; then
+        mkdir -p "$FONT_DIR"
+        cp "$FONT_SRC"/*.ttf "$FONT_DIR/"
+        fc-cache -f
+        success "JetBrains Mono 字体已安装"
+        warn "字体生效需要完全退出并重启 VS Code / Cursor，仅 Reload Window 无效"
+    else
+        warn "跳过字体安装，编辑器将使用默认字体"
+    fi
+fi
+
 # ---------- 构建与打包 ----------
 
 confirm_required "编译 TypeScript 源码" "npm run compile"
@@ -169,7 +188,7 @@ success "已打包: ${VSIX}"
 
 # ---------- 安装到编辑器 ----------
 
-DARCULA_EXT="xr0master.jetbrains-darcula-theme"
+DARCULA_EXT="Anan.jetbrains-darcula-theme"
 installed=""
 
 if command -v code &>/dev/null; then
