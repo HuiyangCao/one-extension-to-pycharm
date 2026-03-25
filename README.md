@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-bash ./install.sh   # 不要 sudo
+bash ./install.sh
 ```
 
 自动安装到 VS Code；如果检测到 Cursor 也会同时安装。
