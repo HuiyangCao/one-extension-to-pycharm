@@ -9,6 +9,7 @@ import {
     registerKillPythonDebugCommand,
 } from './commands';
 import { registerDebugConfigurationProviderAndCommand } from './debug';
+import { registerCommandManagerView } from './commandManager';
 
 export function activate(context: vscode.ExtensionContext) {
     const cfg = loadConfig(context.extensionPath);
@@ -22,8 +23,9 @@ export function activate(context: vscode.ExtensionContext) {
     const copyFileNameCmd = registerCopyFileNameCommand();
     const killPythonDebugCmd = registerKillPythonDebugCommand();
     const debugProvider = registerDebugConfigurationProviderAndCommand(context);
+    const cmdMgrDisposables = registerCommandManagerView(context);
 
-    context.subscriptions.push(cmd, copyFilesCmd, addFavoriteFolderCmd, revealFolderCmd, copyFileNameCmd, killPythonDebugCmd, debugProvider);
+    context.subscriptions.push(cmd, copyFilesCmd, addFavoriteFolderCmd, revealFolderCmd, copyFileNameCmd, killPythonDebugCmd, debugProvider, ...cmdMgrDisposables);
 }
 
 export function deactivate() {}

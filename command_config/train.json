@@ -1,0 +1,49 @@
+{
+  "auto_parameters": {
+    "cuda_index": {
+      "type": "gpu_detection",
+      "command": ""
+    }
+  },
+  "parameters": {
+    "task_name": {
+      "type": "select",
+      "prompt": "请选择 task_name",
+      "options": [
+        "Tracking-Flat-F3-Wo-State-Estimation-v0",
+        "Tracking-Rough-F3-Wo-State-Estimation-v0",
+        "Mjlab-Tracking-Flat-Unitree-G1-No-State-Estimation",
+        "Mjlab-Tracking-Flat-f3-No-State-Estimation",
+        "Mjlab-Tracking-Rough-f3-No-State-Estimation",
+        "Mjlab-Velocity-Flat-f3",
+        "Mjlab-Velocity-AMP-Flat-f3"
+      ]
+    },
+    "motion_name": {
+      "type": "string",
+      "prompt": "请输入 motion_name"
+    }
+  },
+  "commands": [
+    {
+      "name": "F3 本地数据集训练",
+      "command": "CUDA_VISIBLE_DEVICES={cuda_index} python scripts/rsl_rl/train.py --task {task_name} --motion_name {motion_name} --headless --logger wandb --log_project_name beyondmimic --run_name {task_name}",
+      "parameter_refs": ["task_name", "motion_name"]
+    },
+    {
+      "name": "Instinct RL Train (Parkour Target Amp G1)",
+      "command": "CUDA_VISIBLE_DEVICES={cuda_index} python scripts/instinct_rl/train.py --headless --task=Instinct-Parkour-Target-Amp-G1-v0",
+      "parameter_refs": []
+    },
+    {
+      "name": "mjlab train",
+      "command": "CUDA_VISIBLE_DEVICES={cuda_index} uv run train {task_name} --env.scene.num-envs 4096 --env.commands.motion.motion-file {motion_name}",
+      "parameter_refs": ["task_name", "motion_name"]
+    },
+    {
+      "name": "mjlab train velocity",
+      "command": "CUDA_VISIBLE_DEVICES={cuda_index} uv run train {task_name} --env.scene.num-envs 4096",
+      "parameter_refs": ["task_name"]
+    }
+  ]
+}

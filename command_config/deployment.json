@@ -1,0 +1,28 @@
+{
+  "commands": [
+    {
+      "name": "ROS仿真→本地",
+      "command": "rsync -avz --delete --progress --exclude='build/' --exclude='devel/' chenzheng:/home/chenzheng/huiyangcao_deploy_ws/src/ /home/chy/huiyangcao_deploy_ws/src/"
+    },
+    {
+      "name": "本地→ROS仿真(chenzheng_wired)",
+      "command": "rsync -avz --delete --exclude='build/' --exclude='devel/' /home/chy/huiyangcao_ws/src/ chenzheng_wired:/home/chenzheng/huiyangcao_ws/src/"
+    },
+    {
+      "name": "本地→xiaoxin",
+      "command": "rsync -avz --delete --exclude='build/' --exclude='video/' /home/chy/huiyangcao_ws/ xiaoxin:/home/huiyangcao/huiyangcao_ws/"
+    },
+    {
+      "name": "本地→Go1 Dog",
+      "command": "rsync -avz --delete --progress --exclude='build/' --exclude='devel/' /home/chy/huiyangcao_ws/ go1dog:/home/user/huiyangcao_ws/"
+    },
+    {
+      "name": "本地→F3",
+      "command": "rsync -avz --delete --exclude='build/' --exclude='devel/' /home/chy/huiyangcao_deploy_ws/src/ f3:/home/user/huiyangcao_ws/src/"
+    },
+    {
+      "name": "F3→本地",
+      "command": "rsync -avz --delete --exclude='build/' --exclude='devel/' f3:/home/user/huiyangcao_ws/src/ /home/chy/huiyangcao_ws/src/"
+    }
+  ]
+}

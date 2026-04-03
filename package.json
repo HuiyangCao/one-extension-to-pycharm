@@ -42,10 +42,47 @@
       {
         "command": "copy-with-ref.addFavoriteFolder",
         "title": "Add to Favorite Folders"
+      },
+      {
+        "command": "copy-with-ref.runCommand",
+        "title": "Run Command"
+      },
+      {
+        "command": "copy-with-ref.openCommandConfig",
+        "title": "Edit Config"
+      },
+      {
+        "command": "copy-with-ref.refreshCommands",
+        "title": "Refresh Commands",
+        "icon": "$(refresh)"
       }
     ],
     "keybindings": [],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "commandManagerContainer",
+          "title": "Command Manager",
+          "icon": "$(terminal-view-icon)"
+        }
+      ]
+    },
+    "views": {
+      "commandManagerContainer": [
+        {
+          "id": "commandManagerView",
+          "name": "Commands"
+        }
+      ]
+    },
     "menus": {
+      "view/title": [
+        {
+          "command": "copy-with-ref.refreshCommands",
+          "when": "view == commandManagerView",
+          "group": "navigation"
+        }
+      ],
       "debug/toolBar": [
         {
           "command": "copy-with-ref.killPythonDebug",

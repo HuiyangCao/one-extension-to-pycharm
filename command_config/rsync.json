@@ -1,0 +1,50 @@
+{
+  "commands": [
+    {
+      "name": "tijirobotcontrol_2同步  本地→f3_5g",
+      "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' /home/chy/tijirobotcontrol_2/ f3_5g:/home/user/tijirobotcontrol_2/"
+    },
+    {
+      "name": "tijirobotcontrol_2同步  f3_5g→本地",
+      "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' f3_5g:/home/user/tijirobotcontrol_2/ /home/chy/tijirobotcontrol_2/"
+    },
+    {
+      "name": "tijirobotcontrol_2同步  本地→chenzheng",
+      "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' /home/chy/tijirobotcontrol_2/ chenzheng:/home/chenzheng/tijirobotcontrol_2/"
+    },
+    {
+      "name": "tijirobotcontrol_2同步  chenzheng→本地",
+      "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' chenzheng:/home/chenzheng/tijirobotcontrol_2/ /home/chy/tijirobotcontrol_2/"
+    },
+    {
+      "name": "others_util→服务器",
+      "command": "rsync -avz --delete --exclude='logs/' --progress /home/chy/others_util/ gdtj_server_chy:/home/chy/others_util/"
+    },
+    {
+      "name": "tijirobotcontrol_2同步  本地→f3",
+      "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' /home/chy/tijirobotcontrol_2/ f3:/home/user/tijirobotcontrol_2/"
+    },
+    {
+      "name": "tijirobotcontrol_2同步  f3→本地",
+      "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' f3:/home/user/tijirobotcontrol_2/ /home/chy/tijirobotcontrol_2/"
+    },
+    {
+      "name": "自定义目录同步",
+      "command": "rsync -avz --no-g --no-o --delete {{source}} {{dest}}",
+      "parameters": [
+        {
+          "name": "source",
+          "description": "源目录"
+        },
+        {
+          "name": "dest",
+          "description": "目标目录"
+        }
+      ]
+    }
+  ],
+  "_last_used": {
+    "command_index": 4,
+    "parameters": {}
+  }
+}

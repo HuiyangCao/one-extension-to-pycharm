@@ -1,0 +1,28 @@
+{
+  "commands": [
+        {
+        "name": "tjrobotcontroller同步  本地→chenzheng",
+        "command": "rsync -avz --delete --exclude='build/' --exclude='devel/' /home/chy/tjrobotcontroller/ chenzheng:/home/chenzheng/tjrobotcontroller/"
+        },
+        {
+        "name": "tjrobotcontroller同步  chenzheng→本地",
+        "command": "rsync -avz --delete --exclude='build/' --exclude='devel/' chenzheng:/home/chenzheng/tjrobotcontroller/ /home/chy/tjrobotcontroller/"
+        },
+        {
+        "name": "tjrobotcontroller同步  本地→f3_5g",
+        "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' /home/chy/tjrobotcontroller/ f3_5g:/home/user/tjrobotcontroller/"
+        },
+        {
+        "name": "tjrobotcontroller同步  f3_5g→本地",
+        "command": "rsync -avz --no-g --no-o --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' f3_5g:/home/user/tjrobotcontroller/ /home/chy/tjrobotcontroller/"
+        },
+        {
+        "name": "tijirobotcontrol_2同步  本地→f3_5g",
+        "command": "rsync -avz --no-g --no-o --progress --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' /home/chy/tijirobotcontrol_2/ f3_5g:/home/user/tijirobotcontrol_2/"
+        },
+        {
+        "name": "tijirobotcontrol_2同步  f3_5g→本地",
+        "command": "rsync -avz --no-g --no-o --progress --delete --exclude='build/' --exclude='devel/' --exclude='node_modules/' f3_5g:/home/user/tijirobotcontrol_2/ /home/chy/tijirobotcontrol_2/"
+        }
+    ]
+}
