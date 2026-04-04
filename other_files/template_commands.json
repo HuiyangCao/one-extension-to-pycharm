@@ -1,0 +1,20 @@
+{
+  "parameters": {
+    "example_param": {
+      "type": "select",
+      "prompt": "请选择一个选项",
+      "options": ["选项1", "选项2", "选项3"]
+    }
+  },
+  "commands": [
+    {
+      "name": "示例命令 1",
+      "command": "echo '这是一个示例命令'"
+    },
+    {
+      "name": "示例命令 2 (带参数)",
+      "command": "echo '你选择了: {example_param}'",
+      "parameter_refs": ["example_param"]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
 src/
-tsconfig.json
+other_files/tsconfig.json
 .gitignore
 node_modules/

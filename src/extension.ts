@@ -7,7 +7,7 @@ import {
     registerRevealFolderCommand,
     registerCopyFileNameCommand,
     registerKillPythonDebugCommand,
-} from './commands';
+} from './actions';
 import { registerDebugConfigurationProviderAndCommand } from './debug';
 import { registerCommandManagerView } from './commandManager';
 import { registerSshServerView } from './sshManager';

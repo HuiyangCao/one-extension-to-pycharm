@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/HuiyangCao/vscode-copy-with-ref.git"
   },
-  "icon": "icon.png",
+  "icon": "other_files/icon.png",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -49,7 +49,8 @@
       },
       {
         "command": "user_extension.openCommandConfig",
-        "title": "Edit Config"
+        "title": "Edit Config",
+        "icon": "$(edit)"
       },
       {
         "command": "user_extension.refreshCommands",
@@ -111,13 +112,13 @@
         }
       ]
     },
-    "menus": {
-      "view/title": [
-        {
-          "command": "user_extension.refreshCommands",
-          "when": "view == user_extension_commands",
-          "group": "navigation"
-        },
+     "menus": {
+       "view/title": [
+         {
+           "command": "user_extension.refreshCommands",
+           "when": "view == user_extension_commands",
+           "group": "navigation"
+         },
         {
           "command": "user_extension.refreshSsh",
           "when": "view == user_extension_ssh",
@@ -134,13 +135,18 @@
           "group": "navigation"
         }
       ],
-      "view/item/context": [
-        {
-          "command": "user_extension.removeBookmark",
-          "when": "view == user_extension_web && viewItem == bookmarkItem",
-          "group": "inline"
-        }
-      ],
+       "view/item/context": [
+         {
+           "command": "user_extension.openCommandConfig",
+           "when": "view == user_extension_commands && viewItem == category",
+           "group": "inline"
+         },
+         {
+           "command": "user_extension.removeBookmark",
+           "when": "view == user_extension_web && viewItem == bookmarkItem",
+           "group": "inline"
+         }
+       ],
       "debug/toolBar": [
         {
           "command": "user_extension.killPythonDebug",
@@ -174,8 +180,8 @@
     }
   },
   "scripts": {
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "compile": "tsc -p ./other_files/tsconfig.json",
+    "watch": "tsc -watch -p ./other_files/tsconfig.json"
   },
   "devDependencies": {
     "@types/vscode": "^1.80.0",

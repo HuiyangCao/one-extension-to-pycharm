@@ -32,14 +32,15 @@ confirm() {
 # ---------- 读取扩展信息 ----------
 
 PUBLISHER=$(node -p "require('./package.json').publisher" 2>/dev/null || echo "user")
-EXT_ID="${PUBLISHER}.copy-with-ref"
+EXT_ID="${PUBLISHER}.user-extension"
+EXT_ID_OLD="${PUBLISHER}.copy-with-ref"
 
 info "准备卸载扩展: ${EXT_ID}"
 
 # ---------- 回退 settings / keybindings ----------
 
-if confirm "回退扩展写入的 settings 和 keybindings 配置" "python3 uninstall_config.py"; then
-    if python3 "$(dirname "$0")/uninstall_config.py"; then
+if confirm "回退扩展写入的 settings 和 keybindings 配置" "python3 other_files/uninstall_config.py"; then
+    if python3 "$(dirname "$0")/other_files/uninstall_config.py"; then
         success "配置回退完成"
     else
         error "配置回退失败"
@@ -52,6 +53,7 @@ DARCULA_EXT="Anan.jetbrains-darcula-theme"
 
 if command -v code &>/dev/null; then
     if confirm "从 VS Code 卸载扩展" "code --uninstall-extension ${EXT_ID}"; then
+        code --uninstall-extension "$EXT_ID_OLD" 2>/dev/null || true
         if code --uninstall-extension "$EXT_ID" 2>/dev/null; then
             success "已从 VS Code 卸载"
         else
@@ -73,6 +75,7 @@ fi
 
 if command -v cursor &>/dev/null; then
     if confirm "从 Cursor 卸载扩展" "cursor --uninstall-extension ${EXT_ID}"; then
+        cursor --uninstall-extension "$EXT_ID_OLD" 2>/dev/null || true
         if cursor --uninstall-extension "$EXT_ID" 2>/dev/null; then
             success "已从 Cursor 卸载"
         else
@@ -122,10 +125,11 @@ if [ -d out ]; then
     fi
 fi
 
-VSIX_FILES=$(ls copy-with-ref-*.vsix 2>/dev/null || true)
-if [ -n "$VSIX_FILES" ]; then
-    if confirm "删除打包的 .vsix 文件" "rm -f copy-with-ref-*.vsix"; then
-        rm -f copy-with-ref-*.vsix
+VSIX_FILES=$(ls user-extension-*.vsix 2>/dev/null || true)
+OLD_VSIX_FILES=$(ls copy-with-ref-*.vsix 2>/dev/null || true)
+if [ -n "$VSIX_FILES" ] || [ -n "$OLD_VSIX_FILES" ]; then
+    if confirm "删除打包的 .vsix 文件" "rm -f user-extension-*.vsix copy-with-ref-*.vsix"; then
+        rm -f user-extension-*.vsix copy-with-ref-*.vsix
         success ".vsix 文件已删除"
     fi
 fi

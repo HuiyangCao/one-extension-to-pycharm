@@ -8,6 +8,7 @@ VERSION=$(node -p "require('./package.json').version")
 PUBLISHER=$(node -p "require('./package.json').publisher")
 VSIX="${NAME}-${VERSION}.vsix"
 OLD_VSIX="copy-with-ref-${VERSION}.vsix"
+if [ -f "$OLD_VSIX" ]; then rm -f "$OLD_VSIX"; fi
 vsce package --no-dependencies
 
 if command -v code &>/dev/null; then

@@ -34,38 +34,41 @@ class CommandManagerProvider implements vscode.TreeDataProvider<CommandNode> {
     readonly onDidChangeTreeData: vscode.Event<CommandNode | undefined | null | void> =
         this._onDidChangeTreeData.event;
 
-    private fileWatcher: vscode.FileSystemWatcher | null = null;
+    private fileWatchers: vscode.FileSystemWatcher[] = [];
+
+    private get configDirs(): string[] {
+        const userConfigDir = path.join(process.env.HOME || '', '.config', 'user_extension', 'command_config');
+        // const extConfigDir = path.join(this.extensionPath, 'command_config');
+        return [userConfigDir];
+    }
 
     constructor(private extensionPath: string, private context: vscode.ExtensionContext) {
         this.setupFileWatcher();
     }
 
     private setupFileWatcher(): void {
-        try {
-            const configDir = path.join(this.extensionPath, 'command_config');
-            const pattern = new vscode.RelativePattern(configDir, '*.json');
-            this.fileWatcher = vscode.workspace.createFileSystemWatcher(pattern);
+        for (const configDir of this.configDirs) {
+            try {
+                if (!fs.existsSync(configDir)) continue;
+                const pattern = new vscode.RelativePattern(configDir, '*.json');
+                const watcher = vscode.workspace.createFileSystemWatcher(pattern);
 
-            this.fileWatcher.onDidChange(() => {
-                this.refresh();
-            });
+                watcher.onDidChange(() => this.refresh());
+                watcher.onDidCreate(() => this.refresh());
+                watcher.onDidDelete(() => this.refresh());
 
-            this.fileWatcher.onDidCreate(() => {
-                this.refresh();
-            });
-
-            this.fileWatcher.onDidDelete(() => {
-                this.refresh();
-            });
-        } catch (error) {
-            console.error('Failed to setup file watcher for command config:', error);
+                this.fileWatchers.push(watcher);
+            } catch (error) {
+                console.error(`Failed to setup file watcher for ${configDir}:`, error);
+            }
         }
     }
 
     dispose(): void {
-        if (this.fileWatcher) {
-            this.fileWatcher.dispose();
+        for (const watcher of this.fileWatchers) {
+            watcher.dispose();
         }
+        this.fileWatchers = [];
     }
 
     refresh(): void {
@@ -76,11 +79,10 @@ class CommandManagerProvider implements vscode.TreeDataProvider<CommandNode> {
         if (element.kind === 'category') {
             const item = new vscode.TreeItem(element.name, vscode.TreeItemCollapsibleState.Collapsed);
             item.iconPath = new vscode.ThemeIcon('file-json');
-            item.command = {
-                command: `${EXTENSION_ID}.openCommandConfig`,
-                title: 'Edit Config',
-                arguments: [element.filePath],
-            };
+            // 移除双击编辑逻辑，改用按钮触发
+            item.contextValue = 'category';
+            // 保存完整的 element 对象用于菜单传递
+            (item as any).element = element;
             return item;
         } else {
             const item = new vscode.TreeItem(element.name, vscode.TreeItemCollapsibleState.None);
@@ -121,19 +123,29 @@ class CommandManagerProvider implements vscode.TreeDataProvider<CommandNode> {
     }
 
     private getCategories(): CategoryNode[] {
-        const configDir = path.join(this.extensionPath, 'command_config');
-        if (!fs.existsSync(configDir)) {
-            return [];
+        console.log('[CommandManager] configDirs:', this.configDirs)
+        const categories: CategoryNode[] = [];
+        const seen = new Set<string>();
+
+        for (const configDir of this.configDirs) {
+            if (!fs.existsSync(configDir)) continue;
+
+            const files = fs.readdirSync(configDir);
+            for (const f of files) {
+                if (!f.endsWith('.json') || f.startsWith('_')) continue;
+                const name = path.basename(f, '.json');
+                if (seen.has(name)) continue;
+
+                seen.add(name);
+                categories.push({
+                    kind: 'category' as const,
+                    name,
+                    filePath: path.join(configDir, f),
+                });
+            }
         }
 
-        const files = fs.readdirSync(configDir);
-        return files
-            .filter(f => f.endsWith('.json') && !f.startsWith('_'))
-            .map(f => ({
-                kind: 'category' as const,
-                name: path.basename(f, '.json'),
-                filePath: path.join(configDir, f),
-            }));
+        return categories;
     }
 }
 
@@ -247,6 +259,16 @@ export function registerCommandManagerView(context: vscode.ExtensionContext): vs
     });
     disposables.push(treeView);
 
+    // 为树视图元素解析器设置，使菜单可以正确获取元素信息
+    const treeSelectDisposable = treeView.onDidChangeSelection((event) => {
+        if (event.selection.length > 0) {
+            const element = event.selection[0];
+            // 保存最后右键点击的元素
+            (context as any).lastSelectedCommandElement = element;
+        }
+    });
+    disposables.push(treeSelectDisposable);
+
     // Register runCommand
     const runCommandDisposable = vscode.commands.registerCommand(
         `${EXTENSION_ID}.runCommand`,
@@ -282,12 +304,33 @@ export function registerCommandManagerView(context: vscode.ExtensionContext): vs
     // Register openCommandConfig
     const openConfigDisposable = vscode.commands.registerCommand(
         `${EXTENSION_ID}.openCommandConfig`,
-        async (filePath: string) => {
+        async (element?: any) => {
             try {
+                let filePath: string | undefined;
+                
+                if (typeof element === 'string') {
+                    // 直接传入文件路径字符串
+                    filePath = element;
+                } else if (element && 'kind' in element && element.kind === 'category') {
+                    // element 是 CategoryNode
+                    filePath = element.filePath;
+                } else {
+                    // 从上下文中获取最后选中的元素
+                    const lastSelected = (context as any).lastSelectedCommandElement;
+                    if (lastSelected && 'kind' in lastSelected && lastSelected.kind === 'category') {
+                        filePath = lastSelected.filePath;
+                    }
+                }
+                
+                if (!filePath) {
+                    vscode.window.showErrorMessage('Unable to determine config file path');
+                    return;
+                }
+                
                 const doc = await vscode.workspace.openTextDocument(filePath);
                 await vscode.window.showTextDocument(doc);
             } catch (e) {
-                vscode.window.showErrorMessage(`Failed to open ${filePath}: ${e}`);
+                vscode.window.showErrorMessage(`Failed to open config file: ${e}`);
             }
         }
     );

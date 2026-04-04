@@ -27,9 +27,9 @@
         "gitlens.blame.fontFamily": "JetBrains Mono, monospace"
     },
     "keybindings": [
-        { "key": "ctrl+alt+e", "command": "copy-with-ref.revealFolderInExplorer" },
+        { "key": "ctrl+alt+e", "command": "user_extension.revealFolderInExplorer" },
         { "key": "ctrl+shift+c", "command": "-workbench.action.terminal.openNativeConsole" },
-        { "key": "ctrl+shift+c", "command": "copy-with-ref.copy", "when": "editorTextFocus" },
+        { "key": "ctrl+shift+c", "command": "user_extension.copy", "when": "editorTextFocus" },
         { "key": "ctrl+shift+q", "command": "editor.debug.action.runToCursor" },
         { "key": "ctrl+q", "command": "-workbench.action.quit" },
         { "key": "ctrl+q", "command": "git.closeAllDiffEditors" },
