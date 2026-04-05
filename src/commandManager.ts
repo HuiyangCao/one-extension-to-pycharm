@@ -87,6 +87,7 @@ class CommandManagerProvider implements vscode.TreeDataProvider<CommandNode> {
         } else {
             const item = new vscode.TreeItem(element.name, vscode.TreeItemCollapsibleState.None);
             item.iconPath = new vscode.ThemeIcon('run');
+            item.tooltip = element.command;
             item.command = {
                 command: `${EXTENSION_ID}.runCommand`,
                 title: 'Run Command',
@@ -199,16 +200,7 @@ async function collectParameters(
 
         let value: string | undefined;
 
-        if (paramDef.type === 'auto') {
-            // auto 参数：标记为环境变量，在终端中由 shell 执行
-            const command = paramDef.command || '';
-            if (!command) {
-                vscode.window.showWarningMessage(`Auto parameter '${paramName}' has no command defined`);
-                continue;
-            }
-            // 存储原始命令，后续由 buildTerminalCommand 处理
-            value = command;
-        } else if (paramDef.type === 'select' && paramDef.options) {
+        if (paramDef.type === 'select' && paramDef.options) {
             const options = paramDef.options;
             const items = options.map((opt: string) => ({
                 label: opt,
@@ -242,10 +234,8 @@ async function collectParameters(
             continue;
         }
 
-        // auto 参数不保存到 workspaceState（每次动态获取）
-        if (paramDef.type !== 'auto') {
-            await context.workspaceState.update(stateKey, value);
-        }
+        // 保存到 workspaceState
+        await context.workspaceState.update(stateKey, value);
         result[paramName] = value!;
     }
 
@@ -254,51 +244,25 @@ async function collectParameters(
 
 /**
  * 构建最终发送到终端的命令文本。
- * - auto 参数：先 export VAR=$(...) 为环境变量，echo 表格展示，最后用 $VAR 执行
  * - 普通参数：直接替换值
  * - 转义 \{...\} 还原为字面量 {...}
  */
 function buildTerminalCommand(
     command: string,
     params: Record<string, string>,
-    paramDefs: Record<string, Parameter>
+    _paramDefs: Record<string, Parameter>
 ): string {
-    const autoParams: Array<{ name: string; cmd: string }> = [];
     let finalCmd = command;
 
     for (const [key, value] of Object.entries(params)) {
-        const def = paramDefs[key];
-        if (def && def.type === 'auto') {
-            // auto 参数：用环境变量 $__AUTO_xxx 替换
-            const varName = `__AUTO_${key}`;
-            autoParams.push({ name: varName, cmd: value });
-            finalCmd = finalCmd.replace(new RegExp(`(?<!\\\\)\\{${key}\\}`, 'g'), `$${varName}`);
-        } else {
-            // 普通参数：直接替换值
-            finalCmd = finalCmd.replace(new RegExp(`(?<!\\\\)\\{${key}\\}`, 'g'), value);
-        }
+        // 普通参数：直接替换值
+        finalCmd = finalCmd.replace(new RegExp(`(?<!\\\\)\\{${key}\\}`, 'g'), value);
     }
 
     // 还原转义的 \{...\} 为字面量 {...}
     finalCmd = finalCmd.replace(/\\\{/g, '{').replace(/\\\}/g, '}');
 
-    // 构建完整命令
-    const lines: string[] = [];
-
-    if (autoParams.length > 0) {
-        // export 每个 auto 参数
-        for (const ap of autoParams) {
-            lines.push(`export ${ap.name}=$(${ap.cmd})`);
-        }
-        // echo 参数名和值
-        for (const ap of autoParams) {
-            const displayName = ap.name.replace('__AUTO_', '');
-            lines.push(`echo "${displayName}: ${ap.name}=$${ap.name}"`);
-        }
-    }
-
-    lines.push(finalCmd);
-    return lines.join(' && ');
+    return finalCmd;
 }
 
 function getOrCreateTerminal(name: string = 'Command Manager'): vscode.Terminal {

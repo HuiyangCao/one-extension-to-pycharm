@@ -1369,6 +1369,444 @@
         "command": "user_extension.refreshWeb",
         "title": "Refresh Web Explorer",
         "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.runCommand",
+        "title": "Run Command"
+      },
+      {
+        "command": "user_extension.openCommandConfig",
+        "title": "Edit Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.refreshCommands",
+        "title": "Refresh Commands",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.copy",
+        "title": "Copy with File Reference"
+      },
+      {
+        "command": "user_extension.copyFilesToSystem",
+        "title": "Copy to System Clipboard"
+      },
+      {
+        "command": "user_extension.copyFileName",
+        "title": "Copy File Name"
+      },
+      {
+        "command": "user_extension.revealFolderInExplorer",
+        "title": "Reveal Folder in Explorer"
+      },
+      {
+        "command": "user_extension.killPythonDebug",
+        "title": "Kill All Python Debug",
+        "icon": "$(close)"
+      },
+      {
+        "command": "user_extension.addFavoriteFolder",
+        "title": "Add to Favorite Folders"
+      },
+      {
+        "command": "user_extension.connectSsh",
+        "title": "Open terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "user_extension.refreshSsh",
+        "title": "Refresh SSH Hosts",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.openSshConfig",
+        "title": "Open SSH Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.addBookmark",
+        "title": "Add Bookmark",
+        "icon": "$(add)"
+      },
+      {
+        "command": "user_extension.removeBookmark",
+        "title": "Remove Bookmark",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "user_extension.openBookmark",
+        "title": "Open Bookmark"
+      },
+      {
+        "command": "user_extension.refreshWeb",
+        "title": "Refresh Web Explorer",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.runCommand",
+        "title": "Run Command"
+      },
+      {
+        "command": "user_extension.openCommandConfig",
+        "title": "Edit Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.refreshCommands",
+        "title": "Refresh Commands",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.copy",
+        "title": "Copy with File Reference"
+      },
+      {
+        "command": "user_extension.copyFilesToSystem",
+        "title": "Copy to System Clipboard"
+      },
+      {
+        "command": "user_extension.copyFileName",
+        "title": "Copy File Name"
+      },
+      {
+        "command": "user_extension.revealFolderInExplorer",
+        "title": "Reveal Folder in Explorer"
+      },
+      {
+        "command": "user_extension.killPythonDebug",
+        "title": "Kill All Python Debug",
+        "icon": "$(close)"
+      },
+      {
+        "command": "user_extension.addFavoriteFolder",
+        "title": "Add to Favorite Folders"
+      },
+      {
+        "command": "user_extension.connectSsh",
+        "title": "Open terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "user_extension.refreshSsh",
+        "title": "Refresh SSH Hosts",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.openSshConfig",
+        "title": "Open SSH Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.addBookmark",
+        "title": "Add Bookmark",
+        "icon": "$(add)"
+      },
+      {
+        "command": "user_extension.removeBookmark",
+        "title": "Remove Bookmark",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "user_extension.openBookmark",
+        "title": "Open Bookmark"
+      },
+      {
+        "command": "user_extension.refreshWeb",
+        "title": "Refresh Web Explorer",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.runCommand",
+        "title": "Run Command"
+      },
+      {
+        "command": "user_extension.openCommandConfig",
+        "title": "Edit Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.refreshCommands",
+        "title": "Refresh Commands",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.copy",
+        "title": "Copy with File Reference"
+      },
+      {
+        "command": "user_extension.copyFilesToSystem",
+        "title": "Copy to System Clipboard"
+      },
+      {
+        "command": "user_extension.copyFileName",
+        "title": "Copy File Name"
+      },
+      {
+        "command": "user_extension.revealFolderInExplorer",
+        "title": "Reveal Folder in Explorer"
+      },
+      {
+        "command": "user_extension.killPythonDebug",
+        "title": "Kill All Python Debug",
+        "icon": "$(close)"
+      },
+      {
+        "command": "user_extension.addFavoriteFolder",
+        "title": "Add to Favorite Folders"
+      },
+      {
+        "command": "user_extension.connectSsh",
+        "title": "Open terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "user_extension.refreshSsh",
+        "title": "Refresh SSH Hosts",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.openSshConfig",
+        "title": "Open SSH Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.addBookmark",
+        "title": "Add Bookmark",
+        "icon": "$(add)"
+      },
+      {
+        "command": "user_extension.removeBookmark",
+        "title": "Remove Bookmark",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "user_extension.openBookmark",
+        "title": "Open Bookmark"
+      },
+      {
+        "command": "user_extension.refreshWeb",
+        "title": "Refresh Web Explorer",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.runCommand",
+        "title": "Run Command"
+      },
+      {
+        "command": "user_extension.openCommandConfig",
+        "title": "Edit Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.refreshCommands",
+        "title": "Refresh Commands",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.copy",
+        "title": "Copy with File Reference"
+      },
+      {
+        "command": "user_extension.copyFilesToSystem",
+        "title": "Copy to System Clipboard"
+      },
+      {
+        "command": "user_extension.copyFileName",
+        "title": "Copy File Name"
+      },
+      {
+        "command": "user_extension.revealFolderInExplorer",
+        "title": "Reveal Folder in Explorer"
+      },
+      {
+        "command": "user_extension.killPythonDebug",
+        "title": "Kill All Python Debug",
+        "icon": "$(close)"
+      },
+      {
+        "command": "user_extension.addFavoriteFolder",
+        "title": "Add to Favorite Folders"
+      },
+      {
+        "command": "user_extension.connectSsh",
+        "title": "Open terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "user_extension.refreshSsh",
+        "title": "Refresh SSH Hosts",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.openSshConfig",
+        "title": "Open SSH Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.addBookmark",
+        "title": "Add Bookmark",
+        "icon": "$(add)"
+      },
+      {
+        "command": "user_extension.removeBookmark",
+        "title": "Remove Bookmark",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "user_extension.openBookmark",
+        "title": "Open Bookmark"
+      },
+      {
+        "command": "user_extension.refreshWeb",
+        "title": "Refresh Web Explorer",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.runCommand",
+        "title": "Run Command"
+      },
+      {
+        "command": "user_extension.openCommandConfig",
+        "title": "Edit Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.refreshCommands",
+        "title": "Refresh Commands",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.copy",
+        "title": "Copy with File Reference"
+      },
+      {
+        "command": "user_extension.copyFilesToSystem",
+        "title": "Copy to System Clipboard"
+      },
+      {
+        "command": "user_extension.copyFileName",
+        "title": "Copy File Name"
+      },
+      {
+        "command": "user_extension.revealFolderInExplorer",
+        "title": "Reveal Folder in Explorer"
+      },
+      {
+        "command": "user_extension.killPythonDebug",
+        "title": "Kill All Python Debug",
+        "icon": "$(close)"
+      },
+      {
+        "command": "user_extension.addFavoriteFolder",
+        "title": "Add to Favorite Folders"
+      },
+      {
+        "command": "user_extension.connectSsh",
+        "title": "Open terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "user_extension.refreshSsh",
+        "title": "Refresh SSH Hosts",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.openSshConfig",
+        "title": "Open SSH Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.addBookmark",
+        "title": "Add Bookmark",
+        "icon": "$(add)"
+      },
+      {
+        "command": "user_extension.removeBookmark",
+        "title": "Remove Bookmark",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "user_extension.openBookmark",
+        "title": "Open Bookmark"
+      },
+      {
+        "command": "user_extension.refreshWeb",
+        "title": "Refresh Web Explorer",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.runCommand",
+        "title": "Run Command"
+      },
+      {
+        "command": "user_extension.openCommandConfig",
+        "title": "Edit Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.refreshCommands",
+        "title": "Refresh Commands",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.copy",
+        "title": "Copy with File Reference"
+      },
+      {
+        "command": "user_extension.copyFilesToSystem",
+        "title": "Copy to System Clipboard"
+      },
+      {
+        "command": "user_extension.copyFileName",
+        "title": "Copy File Name"
+      },
+      {
+        "command": "user_extension.revealFolderInExplorer",
+        "title": "Reveal Folder in Explorer"
+      },
+      {
+        "command": "user_extension.killPythonDebug",
+        "title": "Kill All Python Debug",
+        "icon": "$(close)"
+      },
+      {
+        "command": "user_extension.addFavoriteFolder",
+        "title": "Add to Favorite Folders"
+      },
+      {
+        "command": "user_extension.connectSsh",
+        "title": "Open terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "user_extension.refreshSsh",
+        "title": "Refresh SSH Hosts",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "user_extension.openSshConfig",
+        "title": "Open SSH Config",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "user_extension.addBookmark",
+        "title": "Add Bookmark",
+        "icon": "$(add)"
+      },
+      {
+        "command": "user_extension.removeBookmark",
+        "title": "Remove Bookmark",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "user_extension.openBookmark",
+        "title": "Open Bookmark"
+      },
+      {
+        "command": "user_extension.refreshWeb",
+        "title": "Refresh Web Explorer",
+        "icon": "$(refresh)"
       }
     ],
     "keybindings": [],
@@ -1383,6 +1821,78 @@
     },
     "views": {
       "user_extension": [
+        {
+          "id": "user_extension_commands",
+          "name": "Commands"
+        },
+        {
+          "id": "user_extension_ssh",
+          "name": "SSH Servers"
+        },
+        {
+          "id": "user_extension_web",
+          "name": "Explorer"
+        },
+        {
+          "id": "user_extension_commands",
+          "name": "Commands"
+        },
+        {
+          "id": "user_extension_ssh",
+          "name": "SSH Servers"
+        },
+        {
+          "id": "user_extension_web",
+          "name": "Explorer"
+        },
+        {
+          "id": "user_extension_commands",
+          "name": "Commands"
+        },
+        {
+          "id": "user_extension_ssh",
+          "name": "SSH Servers"
+        },
+        {
+          "id": "user_extension_web",
+          "name": "Explorer"
+        },
+        {
+          "id": "user_extension_commands",
+          "name": "Commands"
+        },
+        {
+          "id": "user_extension_ssh",
+          "name": "SSH Servers"
+        },
+        {
+          "id": "user_extension_web",
+          "name": "Explorer"
+        },
+        {
+          "id": "user_extension_commands",
+          "name": "Commands"
+        },
+        {
+          "id": "user_extension_ssh",
+          "name": "SSH Servers"
+        },
+        {
+          "id": "user_extension_web",
+          "name": "Explorer"
+        },
+        {
+          "id": "user_extension_commands",
+          "name": "Commands"
+        },
+        {
+          "id": "user_extension_ssh",
+          "name": "SSH Servers"
+        },
+        {
+          "id": "user_extension_web",
+          "name": "Explorer"
+        },
         {
           "id": "user_extension_commands",
           "name": "Commands"
@@ -2026,6 +2536,156 @@
           "command": "user_extension.refreshWeb",
           "when": "view == user_extension_web",
           "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshCommands",
+          "when": "view == user_extension_commands",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshSsh",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.openSshConfig",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.addBookmark",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshWeb",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshCommands",
+          "when": "view == user_extension_commands",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshSsh",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.openSshConfig",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.addBookmark",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshWeb",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshCommands",
+          "when": "view == user_extension_commands",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshSsh",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.openSshConfig",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.addBookmark",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshWeb",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshCommands",
+          "when": "view == user_extension_commands",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshSsh",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.openSshConfig",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.addBookmark",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshWeb",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshCommands",
+          "when": "view == user_extension_commands",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshSsh",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.openSshConfig",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.addBookmark",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshWeb",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshCommands",
+          "when": "view == user_extension_commands",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshSsh",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.openSshConfig",
+          "when": "view == user_extension_ssh",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.addBookmark",
+          "when": "view == user_extension_web",
+          "group": "navigation"
+        },
+        {
+          "command": "user_extension.refreshWeb",
+          "when": "view == user_extension_web",
+          "group": "navigation"
         }
       ],
       "view/item/context": [
@@ -2238,9 +2898,123 @@
           "command": "user_extension.removeBookmark",
           "when": "view == user_extension_web && viewItem == bookmarkItem",
           "group": "inline"
+        },
+        {
+          "command": "user_extension.openCommandConfig",
+          "when": "view == user_extension_commands && viewItem == category",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.connectSsh",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.removeBookmark",
+          "when": "view == user_extension_web && viewItem == bookmarkItem",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.openCommandConfig",
+          "when": "view == user_extension_commands && viewItem == category",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.connectSsh",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.removeBookmark",
+          "when": "view == user_extension_web && viewItem == bookmarkItem",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.openCommandConfig",
+          "when": "view == user_extension_commands && viewItem == category",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.connectSsh",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.removeBookmark",
+          "when": "view == user_extension_web && viewItem == bookmarkItem",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.openCommandConfig",
+          "when": "view == user_extension_commands && viewItem == category",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.connectSsh",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.removeBookmark",
+          "when": "view == user_extension_web && viewItem == bookmarkItem",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.openCommandConfig",
+          "when": "view == user_extension_commands && viewItem == category",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.connectSsh",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.removeBookmark",
+          "when": "view == user_extension_web && viewItem == bookmarkItem",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.openCommandConfig",
+          "when": "view == user_extension_commands && viewItem == category",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.connectSsh",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline"
+        },
+        {
+          "command": "user_extension.removeBookmark",
+          "when": "view == user_extension_web && viewItem == bookmarkItem",
+          "group": "inline"
         }
       ],
       "debug/toolBar": [
+        {
+          "command": "user_extension.killPythonDebug",
+          "when": "inDebugMode"
+        },
+        {
+          "command": "user_extension.killPythonDebug",
+          "when": "inDebugMode"
+        },
+        {
+          "command": "user_extension.killPythonDebug",
+          "when": "inDebugMode"
+        },
+        {
+          "command": "user_extension.killPythonDebug",
+          "when": "inDebugMode"
+        },
+        {
+          "command": "user_extension.killPythonDebug",
+          "when": "inDebugMode"
+        },
+        {
+          "command": "user_extension.killPythonDebug",
+          "when": "inDebugMode"
+        },
         {
           "command": "user_extension.killPythonDebug",
           "when": "inDebugMode"
@@ -2422,9 +3196,129 @@
           "command": "user_extension.copy",
           "group": "9_cutcopypaste",
           "when": "editorTextFocus"
+        },
+        {
+          "command": "user_extension.copy",
+          "group": "9_cutcopypaste",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "user_extension.copy",
+          "group": "9_cutcopypaste",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "user_extension.copy",
+          "group": "9_cutcopypaste",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "user_extension.copy",
+          "group": "9_cutcopypaste",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "user_extension.copy",
+          "group": "9_cutcopypaste",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "user_extension.copy",
+          "group": "9_cutcopypaste",
+          "when": "editorTextFocus"
         }
       ],
       "explorer/context": [
+        {
+          "command": "user_extension.copyFilesToSystem",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.copyFileName",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.addFavoriteFolder",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "user_extension.copyFilesToSystem",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.copyFileName",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.addFavoriteFolder",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "user_extension.copyFilesToSystem",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.copyFileName",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.addFavoriteFolder",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "user_extension.copyFilesToSystem",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.copyFileName",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.addFavoriteFolder",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "user_extension.copyFilesToSystem",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.copyFileName",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.addFavoriteFolder",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "user_extension.copyFilesToSystem",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.copyFileName",
+          "group": "5_cutcopypaste",
+          "when": "!explorerResourceIsRoot"
+        },
+        {
+          "command": "user_extension.addFavoriteFolder",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        },
         {
           "command": "user_extension.copyFilesToSystem",
           "group": "5_cutcopypaste",

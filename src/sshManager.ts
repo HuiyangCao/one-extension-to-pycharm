@@ -143,7 +143,7 @@ class SshServerProvider implements vscode.TreeDataProvider<SshTreeNode> {
             clearInterval(this.pingTimer);
         }
         this.pingAll();
-        this.pingTimer = setInterval(() => this.pingAll(), 5000);
+        this.pingTimer = setInterval(() => this.pingAll(), 2500);
     }
 
     private stopPingTimer(): void {
@@ -265,6 +265,16 @@ class SshServerProvider implements vscode.TreeDataProvider<SshTreeNode> {
 }
 
 /**
+ * 打开 SSH config 文件
+ */
+async function openSshConfig() {
+    const configPath = path.join(os.homedir(), '.ssh', 'config');
+    const uri = vscode.Uri.file(configPath);
+    const doc = await vscode.workspace.openTextDocument(uri);
+    await vscode.window.showTextDocument(doc);
+}
+
+/**
  * SSH 连接命令：新建终端并自动执行 ssh 命令
  */
 async function connectSsh(node: SshTreeNode) {
@@ -294,6 +304,7 @@ export function registerSshServerView(context: vscode.ExtensionContext): vscode.
     });
 
     const connectCmd = vscode.commands.registerCommand(`${EXTENSION_ID}.connectSsh`, connectSsh);
+    const openConfigCmd = vscode.commands.registerCommand(`${EXTENSION_ID}.openSshConfig`, openSshConfig);
     const refreshCmd = vscode.commands.registerCommand(`${EXTENSION_ID}.refreshSsh`, () => {
         provider.refresh();
     });
@@ -302,5 +313,5 @@ export function registerSshServerView(context: vscode.ExtensionContext): vscode.
         new vscode.Disposable(() => provider.dispose())
     );
 
-    return [treeView, connectCmd, refreshCmd, providerDisposable];
+    return [treeView, connectCmd, openConfigCmd, refreshCmd, providerDisposable];
 }

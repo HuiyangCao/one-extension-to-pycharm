@@ -9,6 +9,11 @@
       "command": "user_extension.refreshSsh",
       "title": "Refresh SSH Hosts",
       "icon": "$(refresh)"
+    },
+    {
+      "command": "user_extension.openSshConfig",
+      "title": "Open SSH Config",
+      "icon": "$(edit)"
     }
   ],
   "views": {
@@ -23,6 +28,11 @@
     "view/title": [
       {
         "command": "user_extension.refreshSsh",
+        "when": "view == user_extension_ssh",
+        "group": "navigation"
+      },
+      {
+        "command": "user_extension.openSshConfig",
         "when": "view == user_extension_ssh",
         "group": "navigation"
       }

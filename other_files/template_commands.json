@@ -4,10 +4,6 @@
       "type": "select",
       "prompt": "请选择一个选项",
       "options": ["选项1", "选项2", "选项3"]
-    },
-    "gpu_index": {
-      "type": "auto",
-      "command": "nvidia-smi --query-gpu=index,memory.used --format=csv,noheader,nounits | sort -t, -k2 -n | tail -1 | cut -d, -f1"
     }
   },
   "commands": [
@@ -18,10 +14,6 @@
     {
       "name": "示例命令 2 (带参数)",
       "command": "echo '你选择了: {example_param}'"
-    },
-    {
-      "name": "示例命令 3 (自动参数)",
-      "command": "CUDA_VISIBLE_DEVICES={gpu_index} echo '使用 GPU: {gpu_index}'"
     }
   ]
 }
