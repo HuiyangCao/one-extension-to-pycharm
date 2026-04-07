@@ -98,6 +98,11 @@
         "icon": "$(cloud-download)"
       },
       {
+        "command": "user_extension.copySshIp",
+        "title": "Copy SSH Host/IP",
+        "icon": "$(copy)"
+      },
+      {
         "command": "user_extension.addBookmark",
         "title": "Add Bookmark",
         "icon": "$(add)"
@@ -168,12 +173,17 @@
         {
           "command": "user_extension.syncUpload",
           "when": "view == user_extension_ssh && viewItem == sshHost",
-          "group": "inline"
+          "group": "inline@1"
         },
         {
           "command": "user_extension.syncDownload",
           "when": "view == user_extension_ssh && viewItem == sshHost",
-          "group": "inline"
+          "group": "inline@3"
+        },
+        {
+          "command": "user_extension.copySshIp",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline@5"
         },
         {
           "command": "user_extension.addBookmark",
@@ -200,12 +210,17 @@
         {
           "command": "user_extension.syncUpload",
           "when": "view == user_extension_ssh && viewItem == sshHost",
-          "group": "inline@2"
+          "group": "inline@3"
         },
         {
           "command": "user_extension.connectSsh",
           "when": "view == user_extension_ssh && viewItem == sshHost",
-          "group": "inline@3"
+          "group": "inline@5"
+        },
+        {
+          "command": "user_extension.copySshIp",
+          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "group": "inline@7"
         },
         {
           "command": "user_extension.removeBookmark",
