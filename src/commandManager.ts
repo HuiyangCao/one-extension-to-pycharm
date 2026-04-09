@@ -279,6 +279,23 @@ function getOrCreateRunTerminal(name: string): vscode.Terminal {
     return vscode.window.createTerminal({ name });
 }
 
+function resolveCategoryFilePath(context: vscode.ExtensionContext, element?: any): string | undefined {
+    if (typeof element === 'string') {
+        return element;
+    }
+
+    if (element && 'kind' in element && element.kind === 'category') {
+        return element.filePath;
+    }
+
+    const lastSelected = (context as any).lastSelectedCommandElement;
+    if (lastSelected && 'kind' in lastSelected && lastSelected.kind === 'category') {
+        return lastSelected.filePath;
+    }
+
+    return undefined;
+}
+
 export function registerCommandManagerView(context: vscode.ExtensionContext): vscode.Disposable[] {
     const disposables: vscode.Disposable[] = [];
 
@@ -342,27 +359,13 @@ export function registerCommandManagerView(context: vscode.ExtensionContext): vs
         `${EXTENSION_ID}.openCommandConfig`,
         async (element?: any) => {
             try {
-                let filePath: string | undefined;
-                
-                if (typeof element === 'string') {
-                    // 直接传入文件路径字符串
-                    filePath = element;
-                } else if (element && 'kind' in element && element.kind === 'category') {
-                    // element 是 CategoryNode
-                    filePath = element.filePath;
-                } else {
-                    // 从上下文中获取最后选中的元素
-                    const lastSelected = (context as any).lastSelectedCommandElement;
-                    if (lastSelected && 'kind' in lastSelected && lastSelected.kind === 'category') {
-                        filePath = lastSelected.filePath;
-                    }
-                }
-                
+                const filePath = resolveCategoryFilePath(context, element);
+
                 if (!filePath) {
                     vscode.window.showErrorMessage('Unable to determine config file path');
                     return;
                 }
-                
+
                 const doc = await vscode.workspace.openTextDocument(filePath);
                 await vscode.window.showTextDocument(doc);
             } catch (e) {
@@ -463,6 +466,43 @@ export function registerCommandManagerView(context: vscode.ExtensionContext): vs
         }
     );
     disposables.push(newConfigDisposable);
+
+    // Register deleteCommandConfig
+    const deleteConfigDisposable = vscode.commands.registerCommand(
+        `${EXTENSION_ID}.deleteCommandConfig`,
+        async (element?: any) => {
+            try {
+                const filePath = resolveCategoryFilePath(context, element);
+                if (!filePath) {
+                    vscode.window.showErrorMessage('Unable to determine config file path');
+                    return;
+                }
+
+                const fileName = path.basename(filePath);
+                if (!fs.existsSync(filePath)) {
+                    vscode.window.showWarningMessage(`Config file not found: ${fileName}`);
+                    provider.refresh();
+                    return;
+                }
+
+                const confirm = await vscode.window.showWarningMessage(
+                    `Delete command config "${fileName}"? This action cannot be undone.`,
+                    { modal: true },
+                    'Delete'
+                );
+                if (confirm !== 'Delete') {
+                    return;
+                }
+
+                fs.unlinkSync(filePath);
+                provider.refresh();
+                vscode.window.showInformationMessage(`Deleted command config: ${fileName}`);
+            } catch (e) {
+                vscode.window.showErrorMessage(`Failed to delete config file: ${e}`);
+            }
+        }
+    );
+    disposables.push(deleteConfigDisposable);
 
     // Add provider disposal
     disposables.push(new vscode.Disposable(() => provider.dispose()));

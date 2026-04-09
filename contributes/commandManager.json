@@ -18,6 +18,11 @@
       "command": "trainning_extension.newCommandConfig",
       "title": "New Command Config",
       "icon": "$(add)"
+    },
+    {
+      "command": "trainning_extension.deleteCommandConfig",
+      "title": "Delete Command Config",
+      "icon": "$(trash)"
     }
   ],
   "viewsContainers": {
@@ -54,7 +59,12 @@
       {
         "command": "trainning_extension.openCommandConfig",
         "when": "view == trainning_extension_commands && viewItem == category",
-        "group": "inline"
+        "group": "inline@1"
+      },
+      {
+        "command": "trainning_extension.deleteCommandConfig",
+        "when": "view == trainning_extension_commands && viewItem == category",
+        "group": "inline@2"
       }
     ]
   }

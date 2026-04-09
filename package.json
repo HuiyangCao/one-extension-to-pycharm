@@ -48,6 +48,11 @@
         "icon": "$(add)"
       },
       {
+        "command": "trainning_extension.deleteCommandConfig",
+        "title": "Delete Command Config",
+        "icon": "$(trash)"
+      },
+      {
         "command": "trainning_extension.copy",
         "title": "Copy with File Reference"
       },
@@ -204,7 +209,12 @@
         {
           "command": "trainning_extension.openCommandConfig",
           "when": "view == trainning_extension_commands && viewItem == category",
-          "group": "inline"
+          "group": "inline@1"
+        },
+        {
+          "command": "trainning_extension.deleteCommandConfig",
+          "when": "view == trainning_extension_commands && viewItem == category",
+          "group": "inline@2"
         },
         {
           "command": "trainning_extension.syncDownload",
