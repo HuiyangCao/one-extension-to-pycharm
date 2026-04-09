@@ -228,7 +228,7 @@ export function registerDeleteModelFilesCommand(context: vscode.ExtensionContext
                 return;
             }
 
-            const cfg = vscode.workspace.getConfiguration('user_extension');
+            const cfg = vscode.workspace.getConfiguration('trainning_extension');
             const pythonBin = cfg.get<string>('deleteModelFilesPython', 'python3');
             let ptLimit = cfg.get<number>('deleteModelFilesFolderPurgePtLimit', 8);
             let modelMaxExclusive = cfg.get<number>('deleteModelFilesFolderPurgeModelMax', 5000);

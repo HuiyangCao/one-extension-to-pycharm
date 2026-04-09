@@ -1,14 +1,14 @@
 {
   "configuration": {
-    "title": "User Extension",
+    "title": "Trainning Extension",
     "properties": {
-      "user_extension.deleteModelFilesFolderPurgePtLimit": {
+      "trainning_extension.deleteModelFilesFolderPurgePtLimit": {
         "type": "number",
         "default": 8,
         "minimum": 1,
         "markdownDescription": "步骤 1：直接子文件夹内 `.pt` 文件数 **严格小于** 该值时，才可能被整夹删除（还需满足 model 编号条件）。"
       },
-      "user_extension.deleteModelFilesFolderPurgeModelMax": {
+      "trainning_extension.deleteModelFilesFolderPurgeModelMax": {
         "type": "number",
         "default": 4000,
         "minimum": 0,

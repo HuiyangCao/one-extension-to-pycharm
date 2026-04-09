@@ -31,7 +31,7 @@ function mergeContributes() {
     // Read all JSON files from contributes directory
     const files = fs.readdirSync(CONTRIBUTES_DIR).filter(f => f.endsWith('.json'));
 
-    let configurationTitle = 'User Extension';
+    let configurationTitle = 'Trainning Extension';
     const configurationProperties = {};
 
     for (const file of files) {

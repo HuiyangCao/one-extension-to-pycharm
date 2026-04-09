@@ -1,21 +1,21 @@
 {
   "commands": [
     {
-      "command": "user_extension.runCommand",
+      "command": "trainning_extension.runCommand",
       "title": "Run Command"
     },
     {
-      "command": "user_extension.openCommandConfig",
+      "command": "trainning_extension.openCommandConfig",
       "title": "Edit Config",
       "icon": "$(edit)"
     },
     {
-      "command": "user_extension.refreshCommands",
+      "command": "trainning_extension.refreshCommands",
       "title": "Refresh Commands",
       "icon": "$(refresh)"
     },
     {
-      "command": "user_extension.newCommandConfig",
+      "command": "trainning_extension.newCommandConfig",
       "title": "New Command Config",
       "icon": "$(add)"
     }
@@ -23,16 +23,16 @@
   "viewsContainers": {
     "activitybar": [
       {
-        "id": "user_extension",
-        "title": "User Extension",
+        "id": "trainning_extension",
+        "title": "Trainning Extension",
         "icon": "other_files/锤子.svg"
       }
     ]
   },
   "views": {
-    "user_extension": [
+    "trainning_extension": [
       {
-        "id": "user_extension_commands",
+        "id": "trainning_extension_commands",
         "name": "Commands"
       }
     ]
@@ -40,20 +40,20 @@
   "menus": {
     "view/title": [
       {
-        "command": "user_extension.newCommandConfig",
-        "when": "view == user_extension_commands",
+        "command": "trainning_extension.newCommandConfig",
+        "when": "view == trainning_extension_commands",
         "group": "navigation"
       },
       {
-        "command": "user_extension.refreshCommands",
-        "when": "view == user_extension_commands",
+        "command": "trainning_extension.refreshCommands",
+        "when": "view == trainning_extension_commands",
         "group": "navigation"
       }
     ],
     "view/item/context": [
       {
-        "command": "user_extension.openCommandConfig",
-        "when": "view == user_extension_commands && viewItem == category",
+        "command": "trainning_extension.openCommandConfig",
+        "when": "view == trainning_extension_commands && viewItem == category",
         "group": "inline"
       }
     ]

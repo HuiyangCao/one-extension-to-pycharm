@@ -47,9 +47,9 @@ interface StartCommandConfig {
 
 type SshTreeNode = SshHostNode | SshErrorNode;
 
-const SYNC_CONFIG_DIR = path.join(os.homedir(), '.config', 'user_extension', 'ssh_manager');
+const SYNC_CONFIG_DIR = path.join(os.homedir(), '.config', 'trainning_extension', 'ssh_manager');
 const SYNC_CONFIG_PATH = path.join(SYNC_CONFIG_DIR, 'config.json');
-const START_COMMAND_CONFIG_PATH = path.join(os.homedir(), '.config', 'user_extension', 'start_command.json');
+const START_COMMAND_CONFIG_PATH = path.join(os.homedir(), '.config', 'trainning_extension', 'start_command.json');
 const MAX_HISTORY = 5;
 const MAX_FOLDER_HISTORY = 5;
 

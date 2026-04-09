@@ -1,67 +1,67 @@
 {
   "commands": [
     {
-      "command": "user_extension.copy",
+      "command": "trainning_extension.copy",
       "title": "Copy with File Reference"
     },
     {
-      "command": "user_extension.copyFilesToSystem",
+      "command": "trainning_extension.copyFilesToSystem",
       "title": "Copy to System Clipboard"
     },
     {
-      "command": "user_extension.copyFileName",
+      "command": "trainning_extension.copyFileName",
       "title": "Copy File Name"
     },
     {
-      "command": "user_extension.revealFolderInExplorer",
+      "command": "trainning_extension.revealFolderInExplorer",
       "title": "Reveal Folder in Explorer"
     },
     {
-      "command": "user_extension.killPythonDebug",
+      "command": "trainning_extension.killPythonDebug",
       "title": "Kill All Python Debug",
       "icon": "$(close)"
     },
     {
-      "command": "user_extension.addFavoriteFolder",
+      "command": "trainning_extension.addFavoriteFolder",
       "title": "Add to Favorite Folders"
     },
     {
-      "command": "user_extension.deleteModelFiles",
+      "command": "trainning_extension.deleteModelFiles",
       "title": "Delete Model Files (整理 Logs / model_*.pt)"
     }
   ],
   "menus": {
     "debug/toolBar": [
       {
-        "command": "user_extension.killPythonDebug",
+        "command": "trainning_extension.killPythonDebug",
         "when": "inDebugMode"
       }
     ],
     "editor/context": [
       {
-        "command": "user_extension.copy",
+        "command": "trainning_extension.copy",
         "group": "9_cutcopypaste",
         "when": "editorTextFocus"
       }
     ],
     "explorer/context": [
       {
-        "command": "user_extension.copyFilesToSystem",
+        "command": "trainning_extension.copyFilesToSystem",
         "group": "5_cutcopypaste",
         "when": "!explorerResourceIsRoot"
       },
       {
-        "command": "user_extension.copyFileName",
+        "command": "trainning_extension.copyFileName",
         "group": "5_cutcopypaste",
         "when": "!explorerResourceIsRoot"
       },
       {
-        "command": "user_extension.addFavoriteFolder",
+        "command": "trainning_extension.addFavoriteFolder",
         "group": "navigation",
         "when": "explorerResourceIsFolder"
       },
       {
-        "command": "user_extension.deleteModelFiles",
+        "command": "trainning_extension.deleteModelFiles",
         "group": "navigation",
         "when": "explorerResourceIsFolder"
       }

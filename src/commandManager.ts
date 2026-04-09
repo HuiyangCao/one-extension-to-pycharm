@@ -37,7 +37,7 @@ class CommandManagerProvider implements vscode.TreeDataProvider<CommandNode> {
     private fileWatchers: vscode.FileSystemWatcher[] = [];
 
     private get configDirs(): string[] {
-        const userConfigDir = path.join(process.env.HOME || '', '.config', 'user_extension', 'command_config');
+        const userConfigDir = path.join(process.env.HOME || '', '.config', 'trainning_extension', 'command_config');
         // const extConfigDir = path.join(this.extensionPath, 'command_config');
         return [userConfigDir];
     }
@@ -376,7 +376,7 @@ export function registerCommandManagerView(context: vscode.ExtensionContext): vs
                 const configDir = path.join(
                     process.env.HOME || '',
                     '.config',
-                    'user_extension',
+                    'trainning_extension',
                     'command_config'
                 );
 

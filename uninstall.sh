@@ -32,7 +32,7 @@ confirm() {
 # ---------- 读取扩展信息 ----------
 
 PUBLISHER=$(node -p "require('./package.json').publisher" 2>/dev/null || echo "user")
-EXT_ID="${PUBLISHER}.user-extension"
+EXT_ID="${PUBLISHER}.Trainning-Extension"
 EXT_ID_OLD="${PUBLISHER}.copy-with-ref"
 
 info "准备卸载扩展: ${EXT_ID}"
@@ -125,11 +125,11 @@ if [ -d out ]; then
     fi
 fi
 
-VSIX_FILES=$(ls user-extension-*.vsix 2>/dev/null || true)
+VSIX_FILES=$(ls Trainning-Extension-*.vsix 2>/dev/null || true)
 OLD_VSIX_FILES=$(ls copy-with-ref-*.vsix 2>/dev/null || true)
 if [ -n "$VSIX_FILES" ] || [ -n "$OLD_VSIX_FILES" ]; then
-    if confirm "删除打包的 .vsix 文件" "rm -f user-extension-*.vsix copy-with-ref-*.vsix"; then
-        rm -f user-extension-*.vsix copy-with-ref-*.vsix
+    if confirm "删除打包的 .vsix 文件" "rm -f Trainning-Extension-*.vsix copy-with-ref-*.vsix"; then
+        rm -f Trainning-Extension-*.vsix copy-with-ref-*.vsix
         success ".vsix 文件已删除"
     fi
 fi

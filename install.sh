@@ -154,7 +154,7 @@ else
 fi
 
 # 命令配置模板（安装到用户配置目录）
-COMMAND_CONFIG_DIR="$HOME/.config/user_extension/command_config"
+COMMAND_CONFIG_DIR="$HOME/.config/trainning_extension/command_config"
 TEMPLATE_CONFIG="$(pwd)/other_files/template_commands.json"
 
 if [ ! -d "$COMMAND_CONFIG_DIR" ]; then
@@ -191,7 +191,7 @@ fi
 
 # ---------- 创建用户配置目录 ----------
 
-USER_CONFIG_DIR="$HOME/.config/user_extension"
+USER_CONFIG_DIR="$HOME/.config/trainning_extension"
 USER_COMMAND_CONFIG="$USER_CONFIG_DIR/command_config"
 
 if [ ! -d "$USER_COMMAND_CONFIG" ]; then
@@ -213,7 +213,7 @@ success "编译完成"
 
 VERSION=$(node -p "require('./package.json').version")
 PUBLISHER=$(node -p "require('./package.json').publisher")
-VSIX="user-extension-${VERSION}.vsix"
+VSIX="Trainning-Extension-${VERSION}.vsix"
 
 confirm_required "打包为 .vsix 扩展文件 (v${VERSION})" "vsce package --no-dependencies"
 vsce package --no-dependencies
@@ -227,7 +227,7 @@ installed=""
 if command -v code &>/dev/null; then
     if confirm "检测到 VS Code，安装扩展" "code --install-extension ${VSIX}"; then
         code --uninstall-extension "${PUBLISHER}.copy-with-ref" 2>/dev/null || true
-        code --uninstall-extension "${PUBLISHER}.user-extension" 2>/dev/null || true
+        code --uninstall-extension "${PUBLISHER}.Trainning-Extension" 2>/dev/null || true
         if code --install-extension "$VSIX" 2>/dev/null; then
             success "已安装到 VS Code"
             installed="${installed} VS Code"
@@ -254,7 +254,7 @@ fi
 if command -v cursor &>/dev/null; then
     if confirm "检测到 Cursor，安装扩展" "cursor --install-extension ${VSIX}"; then
         cursor --uninstall-extension "${PUBLISHER}.copy-with-ref" 2>/dev/null || true
-        cursor --uninstall-extension "${PUBLISHER}.user-extension" 2>/dev/null || true
+        cursor --uninstall-extension "${PUBLISHER}.Trainning-Extension" 2>/dev/null || true
         if cursor --install-extension "$VSIX" 2>/dev/null; then
             success "已安装到 Cursor"
             installed="${installed} Cursor"

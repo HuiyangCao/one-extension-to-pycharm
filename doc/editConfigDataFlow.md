@@ -13,7 +13,7 @@
        ↓
 用户点击 Edit Config 按钮
        ↓
-触发 user_extension.openCommandConfig 命令
+触发 trainning_extension.openCommandConfig 命令
        ↓
 commandManager.ts 注册的命令处理器执行
        ↓
@@ -31,7 +31,7 @@ commandManager.ts 注册的命令处理器执行
 **命令定义** (src:51-54):
 ```json
 {
-  "command": "user_extension.openCommandConfig",
+  "command": "trainning_extension.openCommandConfig",
   "title": "Edit Config",
   "icon": "$(edit)"
 }
@@ -40,8 +40,8 @@ commandManager.ts 注册的命令处理器执行
 **菜单配置** (src:140-143):
 ```json
 {
-  "command": "user_extension.openCommandConfig",
-  "when": "view == user_extension_commands && viewItem == category",
+  "command": "trainning_extension.openCommandConfig",
+  "when": "view == trainning_extension_commands && viewItem == category",
   "group": "inline"
 }
 ```
@@ -164,7 +164,7 @@ await vscode.window.showTextDocument(doc);
 
 ```
 1. package.json 菜单条件判定
-   ✓ view == user_extension_commands (当前在 Commands 视图)
+   ✓ view == trainning_extension_commands (当前在 Commands 视图)
    ✓ viewItem == category (该项 contextValue == 'category')
    
 2. getTreeItem() 执行
@@ -172,11 +172,11 @@ await vscode.window.showTextDocument(doc);
    item.element = {
        kind: 'category',
        name: 'train',
-       filePath: '/home/user/.config/user_extension/command_config/train.json'
+       filePath: '/home/user/.config/trainning_extension/command_config/train.json'
    }
 
 3. 用户点击编辑按钮
-   触发 user_extension.openCommandConfig 命令
+   触发 trainning_extension.openCommandConfig 命令
    传入 element 参数（TreeView 菜单系统自动传递）
 
 4. openCommandConfig 命令处理
@@ -184,7 +184,7 @@ await vscode.window.showTextDocument(doc);
    提取: filePath = element.filePath
    
 5. 文件打开
-   openTextDocument('/home/user/.config/user_extension/command_config/train.json')
+   openTextDocument('/home/user/.config/trainning_extension/command_config/train.json')
    → 编辑器显示 train.json 内容
 ```
 

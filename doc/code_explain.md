@@ -1,8 +1,8 @@
-# user-extension 代码说明文档
+# Trainning-Extension 代码说明文档
 
 ## 扩展概述
 
-**user-extension** 是一个 VS Code 扩展，集成了以下功能：
+**Trainning-Extension** 是一个 VS Code 扩展，集成了以下功能：
 
 1. **副本引用复制** — 复制代码位置（文件路径 + 行号）
 2. **系统剪贴板同步** — 复制文件到 GNOME 系统剪贴板
@@ -40,7 +40,7 @@ command_config/
 ### 1. `src/constants.ts` ⭐ 全局常量
 
 ```typescript
-export const EXTENSION_ID = 'user_extension';
+export const EXTENSION_ID = 'trainning_extension';
 ```
 
 **作用**：
@@ -89,12 +89,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 | 命令 | ID | 功能 |
 |------|----|----|
-| Copy with Reference | `user_extension.copy` | 复制代码位置 (@filepath:line) |
-| Copy Files to System | `user_extension.copyFilesToSystem` | 复制文件到系统剪贴板 |
-| Add Favorite Folder | `user_extension.addFavoriteFolder` | 将文件夹加入收藏 |
-| Reveal Folder | `user_extension.revealFolderInExplorer` | 浏览和导航目录（带收藏夹) |
-| Copy File Name | `user_extension.copyFileName` | 复制文件名 |
-| Kill Python Debug | `user_extension.killPythonDebug` | 终止所有 Python 调试进程 |
+| Copy with Reference | `trainning_extension.copy` | 复制代码位置 (@filepath:line) |
+| Copy Files to System | `trainning_extension.copyFilesToSystem` | 复制文件到系统剪贴板 |
+| Add Favorite Folder | `trainning_extension.addFavoriteFolder` | 将文件夹加入收藏 |
+| Reveal Folder | `trainning_extension.revealFolderInExplorer` | 浏览和导航目录（带收藏夹) |
+| Copy File Name | `trainning_extension.copyFileName` | 复制文件名 |
+| Kill Python Debug | `trainning_extension.killPythonDebug` | 终止所有 Python 调试进程 |
 
 **关键实现**：
 - 所有 `registerCommand` 调用使用 `` `${EXTENSION_ID}.commandName` ``
@@ -121,8 +121,8 @@ export function activate(context: vscode.ExtensionContext) {
 **架构**：
 ```
 活动栏 (activitybar)
-  └── user_extension 容器
-       └── user_extension_commands 视图
+  └── trainning_extension 容器
+       └── trainning_extension_commands 视图
             ├── Category 节点 1 (tmux.json)
             │    ├── Command 1
             │    ├── Command 2
@@ -213,9 +213,9 @@ runCommand(category, cmdItem) {
 ```
 
 **命令注册**：
-- `user_extension.runCommand` — 点击命令节点触发
-- `user_extension.openCommandConfig` — 双击分类节点打开 JSON 编辑
-- `user_extension.refreshCommands` — 手动刷新命令树（右上角按钮）
+- `trainning_extension.runCommand` — 点击命令节点触发
+- `trainning_extension.openCommandConfig` — 双击分类节点打开 JSON 编辑
+- `trainning_extension.refreshCommands` — 手动刷新命令树（右上角按钮）
 
 ---
 
@@ -271,7 +271,7 @@ runCommand(category, cmdItem) {
 
 ### 场景 1：执行命令
 ```
-1. 点击活动栏 "user_extension" 图标
+1. 点击活动栏 "trainning_extension" 图标
 2. 侧边栏展示 6 个分类（tmux, train, rsync 等）
 3. 点击分类展开，看到该分类的所有命令
 4. 点击命令
@@ -311,13 +311,13 @@ runCommand(category, cmdItem) {
 
 ## 扩展名变更指南
 
-**当前**：扩展名 = `user_extension`
+**当前**：扩展名 = `trainning_extension`
 
 **如果要改名**（如改为 `my_tools`）：
 
 1. 修改 `src/constants.ts`：
 ```typescript
-export const EXTENSION_ID = 'my_tools';  // 从 'user_extension' 改为 'my_tools'
+export const EXTENSION_ID = 'my_tools';  // 从 'trainning_extension' 改为 'my_tools'
 ```
 
 2. 修改 `package.json`：
@@ -390,7 +390,7 @@ context.subscriptions.push(myCmd);
 3. 在 `package.json` 中声明（如需在菜单中显示）：
 ```json
 {
-  "command": "user_extension.myCommand",
+  "command": "trainning_extension.myCommand",
   "title": "My Command Title"
 }
 ```

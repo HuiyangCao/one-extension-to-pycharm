@@ -8,8 +8,8 @@
 
 ```
 活动栏 (activitybar)
-  └── user_extension 容器
-       └── user_extension_commands 视图
+  └── trainning_extension 容器
+       └── trainning_extension_commands 视图
             ├── Category 节点 1 (tmux.json)
             │    ├── Command 1
             │    ├── Command 2
@@ -129,9 +129,9 @@ function getOrCreateTerminal(name?: string): vscode.Terminal
 
 | 命令 ID | 说明 | 触发方式 |
 |---------|------|----------|
-| `user_extension.runCommand` | 执行命令（收集参数 → 替换 → 发送到终端） | 点击命令节点 |
-| `user_extension.openCommandConfig` | 打开 JSON 配置文件编辑 | 点击分类节点 |
-| `user_extension.refreshCommands` | 手动刷新命令树 | 视图右上角刷新按钮 |
+| `trainning_extension.runCommand` | 执行命令（收集参数 → 替换 → 发送到终端） | 点击命令节点 |
+| `trainning_extension.openCommandConfig` | 打开 JSON 配置文件编辑 | 点击分类节点 |
+| `trainning_extension.refreshCommands` | 手动刷新命令树 | 视图右上角刷新按钮 |
 
 ## 执行流程
 

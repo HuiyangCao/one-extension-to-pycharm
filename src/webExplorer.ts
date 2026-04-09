@@ -10,7 +10,7 @@ interface BookmarkNode {
     url: string;
 }
 
-const BOOKMARKS_PATH = path.join(os.homedir(), '.config', 'user_extension', 'bookmarks.json');
+const BOOKMARKS_PATH = path.join(os.homedir(), '.config', 'trainning_extension', 'bookmarks.json');
 
 /**
  * 确保目录存在

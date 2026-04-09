@@ -1,14 +1,14 @@
 {
-  "name": "user-extension",
-  "displayName": "一键配置 PyCharm 风格",
-  "description": "一键配置 PyCharm 风格的 VS Code 环境：Darcula 主题、JetBrains Mono 字体、文件树优化、快捷键绑定、文件引用复制等。",
+  "name": "Trainning-Extension",
+  "displayName": "训练辅助扩展",
+  "description": "训练辅助扩展，提供训练辅助功能，如命令管理、SSH 服务器管理、Web 浏览器管理等。",
   "version": "0.0.1",
   "publisher": "user",
   "repository": {
     "type": "git",
     "url": "https://github.com/HuiyangCao/vscode-copy-with-ref.git"
   },
-  "icon": "other_files/icon.png",
+  "icon": "other_files/锤子.png",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -29,104 +29,104 @@
   "contributes": {
     "commands": [
       {
-        "command": "user_extension.runCommand",
+        "command": "trainning_extension.runCommand",
         "title": "Run Command"
       },
       {
-        "command": "user_extension.openCommandConfig",
+        "command": "trainning_extension.openCommandConfig",
         "title": "Edit Config",
         "icon": "$(edit)"
       },
       {
-        "command": "user_extension.refreshCommands",
+        "command": "trainning_extension.refreshCommands",
         "title": "Refresh Commands",
         "icon": "$(refresh)"
       },
       {
-        "command": "user_extension.newCommandConfig",
+        "command": "trainning_extension.newCommandConfig",
         "title": "New Command Config",
         "icon": "$(add)"
       },
       {
-        "command": "user_extension.copy",
+        "command": "trainning_extension.copy",
         "title": "Copy with File Reference"
       },
       {
-        "command": "user_extension.copyFilesToSystem",
+        "command": "trainning_extension.copyFilesToSystem",
         "title": "Copy to System Clipboard"
       },
       {
-        "command": "user_extension.copyFileName",
+        "command": "trainning_extension.copyFileName",
         "title": "Copy File Name"
       },
       {
-        "command": "user_extension.revealFolderInExplorer",
+        "command": "trainning_extension.revealFolderInExplorer",
         "title": "Reveal Folder in Explorer"
       },
       {
-        "command": "user_extension.killPythonDebug",
+        "command": "trainning_extension.killPythonDebug",
         "title": "Kill All Python Debug",
         "icon": "$(close)"
       },
       {
-        "command": "user_extension.addFavoriteFolder",
+        "command": "trainning_extension.addFavoriteFolder",
         "title": "Add to Favorite Folders"
       },
       {
-        "command": "user_extension.deleteModelFiles",
+        "command": "trainning_extension.deleteModelFiles",
         "title": "Delete Model Files (整理 Logs / model_*.pt)"
       },
       {
-        "command": "user_extension.connectSsh",
+        "command": "trainning_extension.connectSsh",
         "title": "Open terminal",
         "icon": "$(terminal)"
       },
       {
-        "command": "user_extension.refreshSsh",
+        "command": "trainning_extension.refreshSsh",
         "title": "Refresh SSH Hosts",
         "icon": "$(refresh)"
       },
       {
-        "command": "user_extension.openSshConfig",
+        "command": "trainning_extension.openSshConfig",
         "title": "Open SSH Config",
         "icon": "$(edit)"
       },
       {
-        "command": "user_extension.syncUpload",
+        "command": "trainning_extension.syncUpload",
         "title": "Upload to Server",
         "icon": "$(cloud-upload)"
       },
       {
-        "command": "user_extension.syncDownload",
+        "command": "trainning_extension.syncDownload",
         "title": "Download from Server",
         "icon": "$(cloud-download)"
       },
       {
-        "command": "user_extension.copySshIp",
+        "command": "trainning_extension.copySshIp",
         "title": "Copy SSH Host/IP",
         "icon": "$(copy)"
       },
       {
-        "command": "user_extension.setSshStartCommand",
+        "command": "trainning_extension.setSshStartCommand",
         "title": "Set SSH Startup Command",
         "icon": "$(gear)"
       },
       {
-        "command": "user_extension.addBookmark",
+        "command": "trainning_extension.addBookmark",
         "title": "Add Bookmark",
         "icon": "$(add)"
       },
       {
-        "command": "user_extension.removeBookmark",
+        "command": "trainning_extension.removeBookmark",
         "title": "Remove Bookmark",
         "icon": "$(trash)"
       },
       {
-        "command": "user_extension.openBookmark",
+        "command": "trainning_extension.openBookmark",
         "title": "Open Bookmark"
       },
       {
-        "command": "user_extension.refreshWeb",
+        "command": "trainning_extension.refreshWeb",
         "title": "Refresh Web Explorer",
         "icon": "$(refresh)"
       }
@@ -135,24 +135,24 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "user_extension",
-          "title": "User Extension",
+          "id": "trainning_extension",
+          "title": "Trainning Extension",
           "icon": "other_files/锤子.svg"
         }
       ]
     },
     "views": {
-      "user_extension": [
+      "trainning_extension": [
         {
-          "id": "user_extension_commands",
+          "id": "trainning_extension_commands",
           "name": "Commands"
         },
         {
-          "id": "user_extension_ssh",
+          "id": "trainning_extension_ssh",
           "name": "SSH Servers"
         },
         {
-          "id": "user_extension_web",
+          "id": "trainning_extension_web",
           "name": "Explorer"
         }
       ]
@@ -160,129 +160,129 @@
     "menus": {
       "view/title": [
         {
-          "command": "user_extension.newCommandConfig",
-          "when": "view == user_extension_commands",
+          "command": "trainning_extension.newCommandConfig",
+          "when": "view == trainning_extension_commands",
           "group": "navigation"
         },
         {
-          "command": "user_extension.refreshCommands",
-          "when": "view == user_extension_commands",
+          "command": "trainning_extension.refreshCommands",
+          "when": "view == trainning_extension_commands",
           "group": "navigation"
         },
         {
-          "command": "user_extension.refreshSsh",
-          "when": "view == user_extension_ssh",
+          "command": "trainning_extension.refreshSsh",
+          "when": "view == trainning_extension_ssh",
           "group": "navigation"
         },
         {
-          "command": "user_extension.openSshConfig",
-          "when": "view == user_extension_ssh",
+          "command": "trainning_extension.openSshConfig",
+          "when": "view == trainning_extension_ssh",
           "group": "navigation"
         },
         {
-          "command": "user_extension.syncUpload",
-          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "command": "trainning_extension.syncUpload",
+          "when": "view == trainning_extension_ssh && viewItem == sshHost",
           "group": "inline@1"
         },
         {
-          "command": "user_extension.syncDownload",
-          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "command": "trainning_extension.syncDownload",
+          "when": "view == trainning_extension_ssh && viewItem == sshHost",
           "group": "inline@3"
         },
         {
-          "command": "user_extension.addBookmark",
-          "when": "view == user_extension_web",
+          "command": "trainning_extension.addBookmark",
+          "when": "view == trainning_extension_web",
           "group": "navigation"
         },
         {
-          "command": "user_extension.refreshWeb",
-          "when": "view == user_extension_web",
+          "command": "trainning_extension.refreshWeb",
+          "when": "view == trainning_extension_web",
           "group": "navigation"
         }
       ],
       "view/item/context": [
         {
-          "command": "user_extension.openCommandConfig",
-          "when": "view == user_extension_commands && viewItem == category",
+          "command": "trainning_extension.openCommandConfig",
+          "when": "view == trainning_extension_commands && viewItem == category",
           "group": "inline"
         },
         {
-          "command": "user_extension.syncDownload",
-          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "command": "trainning_extension.syncDownload",
+          "when": "view == trainning_extension_ssh && viewItem == sshHost",
           "group": "inline@1"
         },
         {
-          "command": "user_extension.syncUpload",
-          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "command": "trainning_extension.syncUpload",
+          "when": "view == trainning_extension_ssh && viewItem == sshHost",
           "group": "inline@3"
         },
         {
-          "command": "user_extension.connectSsh",
-          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "command": "trainning_extension.connectSsh",
+          "when": "view == trainning_extension_ssh && viewItem == sshHost",
           "group": "inline@5"
         },
         {
-          "command": "user_extension.copySshIp",
-          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "command": "trainning_extension.copySshIp",
+          "when": "view == trainning_extension_ssh && viewItem == sshHost",
           "group": "navigation@1"
         },
         {
-          "command": "user_extension.setSshStartCommand",
-          "when": "view == user_extension_ssh && viewItem == sshHost",
+          "command": "trainning_extension.setSshStartCommand",
+          "when": "view == trainning_extension_ssh && viewItem == sshHost",
           "group": "navigation@2"
         },
         {
-          "command": "user_extension.removeBookmark",
-          "when": "view == user_extension_web && viewItem == bookmarkItem",
+          "command": "trainning_extension.removeBookmark",
+          "when": "view == trainning_extension_web && viewItem == bookmarkItem",
           "group": "inline"
         }
       ],
       "debug/toolBar": [
         {
-          "command": "user_extension.killPythonDebug",
+          "command": "trainning_extension.killPythonDebug",
           "when": "inDebugMode"
         }
       ],
       "editor/context": [
         {
-          "command": "user_extension.copy",
+          "command": "trainning_extension.copy",
           "group": "9_cutcopypaste",
           "when": "editorTextFocus"
         }
       ],
       "explorer/context": [
         {
-          "command": "user_extension.copyFilesToSystem",
+          "command": "trainning_extension.copyFilesToSystem",
           "group": "5_cutcopypaste",
           "when": "!explorerResourceIsRoot"
         },
         {
-          "command": "user_extension.copyFileName",
+          "command": "trainning_extension.copyFileName",
           "group": "5_cutcopypaste",
           "when": "!explorerResourceIsRoot"
         },
         {
-          "command": "user_extension.addFavoriteFolder",
+          "command": "trainning_extension.addFavoriteFolder",
           "group": "navigation",
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "user_extension.deleteModelFiles",
+          "command": "trainning_extension.deleteModelFiles",
           "group": "navigation",
           "when": "explorerResourceIsFolder"
         }
       ]
     },
     "configuration": {
-      "title": "User Extension",
+      "title": "Trainning Extension",
       "properties": {
-        "user_extension.deleteModelFilesFolderPurgePtLimit": {
+        "trainning_extension.deleteModelFilesFolderPurgePtLimit": {
           "type": "number",
           "default": 8,
           "minimum": 1,
           "markdownDescription": "步骤 1：直接子文件夹内 `.pt` 文件数 **严格小于** 该值时，才可能被整夹删除（还需满足 model 编号条件）。"
         },
-        "user_extension.deleteModelFilesFolderPurgeModelMax": {
+        "trainning_extension.deleteModelFilesFolderPurgeModelMax": {
           "type": "number",
           "default": 4000,
           "minimum": 0,

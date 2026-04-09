@@ -59,7 +59,7 @@
 ```
 
 #### install.sh 集成：
-- 自动创建 `~/.config/user_extension/command_config/` 目录
+- 自动创建 `~/.config/trainning_extension/command_config/` 目录
 - 首次安装时将模板配置复制到用户目录
 - 用户可以基于模板创建自己的命令配置
 
