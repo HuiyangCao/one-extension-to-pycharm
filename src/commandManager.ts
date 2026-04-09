@@ -265,7 +265,17 @@ function buildTerminalCommand(
     return finalCmd;
 }
 
-function createRunTerminal(name: string): vscode.Terminal {
+function getOrCreateRunTerminal(name: string): vscode.Terminal {
+    const activeTerminal = vscode.window.activeTerminal;
+    if (activeTerminal) {
+        return activeTerminal;
+    }
+
+    const existingTerminal = vscode.window.terminals[0];
+    if (existingTerminal) {
+        return existingTerminal;
+    }
+
     return vscode.window.createTerminal({ name });
 }
 
@@ -317,7 +327,7 @@ export function registerCommandManagerView(context: vscode.ExtensionContext): vs
                 // 构建终端命令
                 const finalCmd = buildTerminalCommand(cmdItem.command, params, paramDefs);
 
-                const terminal = createRunTerminal(cmdItem.name?.trim() || 'Command Manager');
+                const terminal = getOrCreateRunTerminal(cmdItem.name?.trim() || 'Command Manager');
                 terminal.show(true);
                 terminal.sendText(finalCmd, true);
             } catch (e) {

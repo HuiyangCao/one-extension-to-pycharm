@@ -1,4 +1,7 @@
 import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
 import { loadConfig, applySettings, applyUserKeybindings } from './config';
 import {
     registerCopyWithRefCommand,
@@ -15,9 +18,22 @@ import { registerSshServerView } from './sshManager';
 import { registerWebExplorerView } from './webExplorer';
 
 export function activate(context: vscode.ExtensionContext) {
-    const cfg = loadConfig(context.extensionPath);
-    applySettings(context, cfg.settings);
-    applyUserKeybindings(context, cfg.keybindings);
+    const jetbrainsFlagFile = path.join(os.homedir(), '.config', 'trainning_extension', 'jetbrains_mode_enabled');
+    const shouldApplyJetbrainsPreset = (() => {
+        try {
+            const raw = fs.readFileSync(jetbrainsFlagFile, 'utf8').trim();
+            return raw !== '0';
+        } catch {
+            // Default to enabled for backward compatibility when flag file is absent.
+            return true;
+        }
+    })();
+
+    if (shouldApplyJetbrainsPreset) {
+        const cfg = loadConfig(context.extensionPath);
+        applySettings(context, cfg.settings);
+        applyUserKeybindings(context, cfg.keybindings);
+    }
 
     const cmd = registerCopyWithRefCommand(context);
     const copyFilesCmd = registerCopyFilesToSystemCommand();

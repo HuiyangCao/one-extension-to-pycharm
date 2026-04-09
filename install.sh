@@ -16,6 +16,9 @@ success() { echo -e "${GREEN}[OK]${NC} $*"; }
 warn()    { echo -e "${YELLOW}[WARN]${NC} $*"; }
 error()   { echo -e "${RED}[ERROR]${NC} $*"; }
 
+USER_CONFIG_DIR="$HOME/.config/trainning_extension"
+JETBRAINS_FLAG_FILE="$USER_CONFIG_DIR/jetbrains_mode_enabled"
+
 # 询问用户是否执行，显示原因和将要执行的命令
 # confirm "原因" "命令"
 # 用户输入 n 则跳过，其他任意键或回车则执行
@@ -170,11 +173,30 @@ else
     fi
 fi
 
+# JetBrains 设定总开关：决定是否应用 JetBrains 风格设置与键位
+JETBRAINS_MODE_ENABLED=1
+if confirm "是否启用 JetBrains 操作方式设定（键位与界面偏好）" \
+            "启用后扩展激活时会自动应用 src/config.json 中的 settings/keybindings"; then
+    JETBRAINS_MODE_ENABLED=1
+else
+    JETBRAINS_MODE_ENABLED=0
+fi
+
+mkdir -p "$USER_CONFIG_DIR"
+echo "$JETBRAINS_MODE_ENABLED" > "$JETBRAINS_FLAG_FILE"
+if [ "$JETBRAINS_MODE_ENABLED" -eq 1 ]; then
+    success "已启用 JetBrains 操作方式设定"
+else
+    success "已禁用 JetBrains 操作方式设定（将跳过字体安装与配置应用）"
+fi
+
 # JetBrains Mono 字体（项目自带字体文件，直接复制到用户字体目录）
 FONT_SRC="$(pwd)/JetBrainsMono-2.304/fonts/ttf"
 FONT_DIR="$HOME/.local/share/fonts"
 
-if fc-list 2>/dev/null | grep -qi "JetBrains Mono"; then
+if [ "$JETBRAINS_MODE_ENABLED" -ne 1 ]; then
+    warn "JetBrains 模式已禁用，跳过字体安装"
+elif fc-list 2>/dev/null | grep -qi "JetBrains Mono"; then
     success "JetBrains Mono 字体已安装"
 else
     if confirm "未检测到 JetBrains Mono 字体，从项目自带文件安装到 ${FONT_DIR}" \
