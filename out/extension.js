@@ -11,6 +11,7 @@ const debug_1 = require("./debug");
 const commandManager_1 = require("./commandManager");
 const sshManager_1 = require("./sshManager");
 const webExplorer_1 = require("./webExplorer");
+const logsExplorer_1 = require("./logsExplorer");
 function activate(context) {
     const jetbrainsFlagFile = path.join(os.homedir(), '.config', 'trainning_extension', 'jetbrains_mode_enabled');
     const shouldApplyJetbrainsPreset = (() => {
@@ -39,7 +40,8 @@ function activate(context) {
     const cmdMgrDisposables = (0, commandManager_1.registerCommandManagerView)(context);
     const sshDisposables = (0, sshManager_1.registerSshServerView)(context);
     const webDisposables = (0, webExplorer_1.registerWebExplorerView)(context);
-    context.subscriptions.push(cmd, copyFilesCmd, addFavoriteFolderCmd, revealFolderCmd, copyFileNameCmd, deleteModelFilesCmd, killPythonDebugCmd, debugProvider, ...cmdMgrDisposables, ...sshDisposables, ...webDisposables);
+    const logsDisposables = (0, logsExplorer_1.registerLogsExplorerView)(context);
+    context.subscriptions.push(cmd, copyFilesCmd, addFavoriteFolderCmd, revealFolderCmd, copyFileNameCmd, deleteModelFilesCmd, killPythonDebugCmd, debugProvider, ...cmdMgrDisposables, ...sshDisposables, ...webDisposables, ...logsDisposables);
 }
 function deactivate() { }
 //# sourceMappingURL=extension.js.map

@@ -10,13 +10,7 @@ export function registerCopyWithRefCommand(context: vscode.ExtensionContext) {
         if (!editor) return;
 
         const selection = editor.selection;
-
-        const workspaceFolders = vscode.workspace.workspaceFolders;
-        let filePath = editor.document.fileName;
-        if (workspaceFolders) {
-            const root = workspaceFolders[0].uri.fsPath;
-            filePath = path.relative(root, filePath);
-        }
+        const filePath = editor.document.fileName;
 
         const startLine = selection.start.line + 1;
         const endLine = selection.end.line + 1;

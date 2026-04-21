@@ -16,6 +16,7 @@ import { registerDebugConfigurationProviderAndCommand } from './debug';
 import { registerCommandManagerView } from './commandManager';
 import { registerSshServerView } from './sshManager';
 import { registerWebExplorerView } from './webExplorer';
+import { registerLogsExplorerView } from './logsExplorer';
 
 export function activate(context: vscode.ExtensionContext) {
     const jetbrainsFlagFile = path.join(os.homedir(), '.config', 'trainning_extension', 'jetbrains_mode_enabled');
@@ -46,8 +47,9 @@ export function activate(context: vscode.ExtensionContext) {
     const cmdMgrDisposables = registerCommandManagerView(context);
     const sshDisposables = registerSshServerView(context);
     const webDisposables = registerWebExplorerView(context);
+    const logsDisposables = registerLogsExplorerView(context);
 
-    context.subscriptions.push(cmd, copyFilesCmd, addFavoriteFolderCmd, revealFolderCmd, copyFileNameCmd, deleteModelFilesCmd, killPythonDebugCmd, debugProvider, ...cmdMgrDisposables, ...sshDisposables, ...webDisposables);
+    context.subscriptions.push(cmd, copyFilesCmd, addFavoriteFolderCmd, revealFolderCmd, copyFileNameCmd, deleteModelFilesCmd, killPythonDebugCmd, debugProvider, ...cmdMgrDisposables, ...sshDisposables, ...webDisposables, ...logsDisposables);
 }
 
 export function deactivate() {}

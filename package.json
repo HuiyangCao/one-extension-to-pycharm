@@ -82,6 +82,29 @@
         "title": "Delete Model Files (整理 Logs / model_*.pt)"
       },
       {
+        "command": "trainning_extension.setLogsDirectory",
+        "title": "Set Logs Directory",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "trainning_extension.refreshLogs",
+        "title": "Refresh Logs",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "trainning_extension.copyOnnxFiles",
+        "title": "Copy",
+        "icon": "$(files)"
+      },
+      {
+        "command": "trainning_extension.revealOnnxInExplorer",
+        "title": "Reveal in File Explorer"
+      },
+      {
+        "command": "trainning_extension.copyOnnxFilePath",
+        "title": "Copy Path"
+      },
+      {
         "command": "trainning_extension.connectSsh",
         "title": "Open terminal",
         "icon": "$(terminal)"
@@ -153,6 +176,10 @@
           "name": "Commands"
         },
         {
+          "id": "trainning_extension_logs",
+          "name": "Logs"
+        },
+        {
           "id": "trainning_extension_ssh",
           "name": "SSH Servers"
         },
@@ -173,6 +200,21 @@
           "command": "trainning_extension.refreshCommands",
           "when": "view == trainning_extension_commands",
           "group": "navigation"
+        },
+        {
+          "command": "trainning_extension.setLogsDirectory",
+          "when": "view == trainning_extension_logs",
+          "group": "navigation@1"
+        },
+        {
+          "command": "trainning_extension.refreshLogs",
+          "when": "view == trainning_extension_logs",
+          "group": "navigation@2"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFiles",
+          "when": "view == trainning_extension_logs",
+          "group": "navigation@3"
         },
         {
           "command": "trainning_extension.refreshSsh",
@@ -215,6 +257,56 @@
           "command": "trainning_extension.deleteCommandConfig",
           "when": "view == trainning_extension_commands && viewItem == category",
           "group": "inline@2"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFiles",
+          "when": "view == trainning_extension_logs && viewItem == onnxFile",
+          "group": "inline@1"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFiles",
+          "when": "view == trainning_extension_logs && viewItem == onnxFile",
+          "group": "navigation@1"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFilePath",
+          "when": "view == trainning_extension_logs && viewItem == onnxFile",
+          "group": "navigation@2"
+        },
+        {
+          "command": "trainning_extension.revealOnnxInExplorer",
+          "when": "view == trainning_extension_logs && viewItem == onnxFile",
+          "group": "navigation@3"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFiles",
+          "when": "view == trainning_extension_logs && viewItem == runFolder",
+          "group": "inline@1"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFiles",
+          "when": "view == trainning_extension_logs && viewItem == runFolder",
+          "group": "navigation@1"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFilePath",
+          "when": "view == trainning_extension_logs && viewItem == runFolder",
+          "group": "navigation@2"
+        },
+        {
+          "command": "trainning_extension.revealOnnxInExplorer",
+          "when": "view == trainning_extension_logs && viewItem == runFolder",
+          "group": "navigation@3"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFiles",
+          "when": "view == trainning_extension_logs && viewItem == taskGroup",
+          "group": "inline@1"
+        },
+        {
+          "command": "trainning_extension.copyOnnxFiles",
+          "when": "view == trainning_extension_logs && viewItem == taskGroup",
+          "group": "navigation@1"
         },
         {
           "command": "trainning_extension.syncDownload",
@@ -297,6 +389,19 @@
           "default": 4000,
           "minimum": 0,
           "markdownDescription": "步骤 1：上述子文件夹内所有 `model_*.pt` 的编号必须 **严格小于** 该值，才会被整夹删除；任一号 ≥ 该值则保留该文件夹。"
+        },
+        "trainning_extension.logsDaysFilter": {
+          "type": "number",
+          "default": 3,
+          "minimum": 1,
+          "markdownDescription": "Logs 视图：扫描最近多少天内的 `.onnx` 文件（按文件夹名中的日期判断，默认 3 天）。修改后自动刷新。"
+        },
+        "trainning_extension.logsScanDepth": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 20,
+          "markdownDescription": "Logs 视图：递归扫描的最大目录深度（默认 5 层）。修改后自动刷新。"
         }
       }
     }
